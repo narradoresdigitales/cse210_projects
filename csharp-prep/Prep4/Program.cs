@@ -1,25 +1,25 @@
-using System;
+using System.Collections.Generic;
+
 
 class Program
 {
     static void Main(string[] args)
     {
-        DisplayMessage();
-		Username();
-		
-		static void DisplayMessage()
+        List<int> numbers = new List<int>();
+		int userEntry = -1;
+
+		while (userEntry != 0)
+
 		{
-    		Console.WriteLine("Welcome to the Program!");
+			Console.Write("Think positive and enter a list of positive numbers!");
+			Console.Write("Enter the number 0 when you have finished.");
+
+
 		}
-		
-		static string Username()
-			
-		{
-			Console.Write("Please enter your name:   ");
-			string username = Console.ReadLine();
-			
-			return username;
-		}
+
+
+
+
     
     }
 }
