@@ -19,9 +19,28 @@ class Program
         string userEntry = Console.ReadLine();
         userChoice = int.Parse(userEntry);
         Console.WriteLine(userChoice);
+        
+            if (userChoice == 1)
+            {
+                Console.WriteLine("You will write a journal entry.");
+            }
+
+            else if (userChoice == 2)
+            {
+                Console.WriteLine("You have chosen to display the journal.");
+            }
+            else if (userChoice == 3)
+            {
+                Console.WriteLine("You have chosen to load the journal.");
+            }
+            else if (userChoice == 4)
+            {
+                Console.WriteLine("You have chosen to save the journal.");
+            }
+
         }
 
-    
+
 
 
         
