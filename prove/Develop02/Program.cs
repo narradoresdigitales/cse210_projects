@@ -18,13 +18,10 @@ class Program
         Console.Write("What would you like to do? ");
         string userEntry = Console.ReadLine();
         userChoice = int.Parse(userEntry);
-        
+        Console.WriteLine(userChoice);
         }
+
     
-            if (userChoice == 1)
-            {
-            Console.WriteLine("You have chosen to write a journal entry");
-            }
 
 
         
