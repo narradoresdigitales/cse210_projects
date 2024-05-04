@@ -29,7 +29,7 @@ class Program
                 string entryDate = theCurrentTime.ToShortDateString();
                 anEntry._date = entryDate;
 
-                anEntry.Display(anEntry._entryText, anEntry._date);
+                anEntry.Display(anEntry._date, anEntry._entryText);
 
 
             }
