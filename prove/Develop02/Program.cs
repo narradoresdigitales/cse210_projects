@@ -6,7 +6,7 @@ class Program
     {
         Journal theJournal = new Journal();
         Entry anEntry = new Entry();
-        
+
 
         int userChoice = -1;
 
@@ -17,7 +17,7 @@ class Program
             Console.Write("What would you like to do? ");
             string _promptText = Console.ReadLine();
             userChoice = int.Parse(_promptText);
-            
+
 
             if (userChoice == 1)
             {
@@ -29,12 +29,11 @@ class Program
                 string entryDate = theCurrentTime.ToShortDateString();
                 anEntry._date = entryDate;
 
-                Console.WriteLine($"You answered '{anEntry._entryText}' at {anEntry._date}");
                 anEntry.Display(anEntry._entryText, anEntry._date);
 
-            
 
-                
+
+
 
             }
 
