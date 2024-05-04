@@ -35,7 +35,7 @@ class Program
 
             else if (userChoice == 2)
             {
-                Console.WriteLine(entry1);
+                Console.WriteLine("You have chosen to display the journal.");
             }
             else if (userChoice == 3)
             {
