@@ -10,7 +10,7 @@ public class Entry
     public string _entryText;
 
 
-    public void Display(string date, string text)
+    public void Display(string text, string date)
     {
         Console.WriteLine($"You have recorded {text} on {date}");
     }
