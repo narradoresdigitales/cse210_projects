@@ -4,7 +4,10 @@ public class PromptGenerator {
     public List<string> _prompts = new List<string>()
     {
         "What has been the most memorable part of your day?",
-        "How are you feeling? Explain."
+        "How are you feeling? Explain.",
+        "Did you drink yerba mate today?",
+        "Did you read your scriptures? ",
+        "Did you let your son play video games?"
 
     };
     Random _randomPrompt = new Random();
