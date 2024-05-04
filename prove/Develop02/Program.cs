@@ -25,7 +25,7 @@ class Program
             {
                 Console.Write("How are you today? ");
                 string response = Console.ReadLine();
-                response = anEntry._entryText;
+                anEntry._entryText  =response;
 
                 DateTime theCurrentTime = DateTime.Now;
                 string entryDate = theCurrentTime.ToShortDateString();
