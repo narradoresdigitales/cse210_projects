@@ -12,6 +12,6 @@ public class Entry
 
     public void Display(string text, string date)
     {
-        Console.WriteLine($"You have recorded {text} on {date}");
+        Console.WriteLine($"You have recorded '{text}' on {date}");
     }
 }
