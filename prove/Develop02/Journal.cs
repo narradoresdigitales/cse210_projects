@@ -1,8 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-public class Journal 
-{
+public class Journal {
 
     public List<Entry> _entries = new List<Entry>();
 
@@ -45,6 +44,7 @@ public class Journal
             {
                 string[] paragraph = line.Split("~");
                 anEntryFromFile = new Entry();
+                
                 anEntryFromFile._date = paragraph[0];
                 anEntryFromFile._promptText = paragraph[1];
                 anEntryFromFile._entryText = paragraph[2];
