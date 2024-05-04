@@ -14,18 +14,20 @@ class Program
         while (userChoice != 5)
 
         {
-        Console.Write("Please select one of the following choices \n 1. Write \n 2. Display \n 3. Load \n 4. Save \n 5. Quit \n ");
-        Console.Write("What would you like to do? ");
-        string userEntry = Console.ReadLine();
-        userChoice = int.Parse(userEntry);
-        Console.WriteLine(userChoice);
-        
+            Console.Write("Please select one of the following choices \n 1. Write \n 2. Display \n 3. Load \n 4. Save \n 5. Quit \n ");
+            Console.Write("What would you like to do? ");
+            string userEntry = Console.ReadLine();
+            userChoice = int.Parse(userEntry);
+            Console.WriteLine(userChoice);
+
             if (userChoice == 1)
             {
                 Console.Write("How do you feel today? ");
                 string entry = Console.ReadLine();
                 Console.WriteLine(entry);
-                
+                DateTime theCurrentTime = DateTime.Now;
+                string dateText = theCurrentTime.ToShortDateString();
+                Console.WriteLine(dateText);
 
                 //Console.WriteLine("You will write a journal entry.");
             }
@@ -48,8 +50,8 @@ class Program
 
 
 
-        
+
     }
 
-    
+
 }
