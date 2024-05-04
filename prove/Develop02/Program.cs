@@ -24,7 +24,7 @@ class Program
                 DateTime theCurrentTime = DateTime.Now;
                 anEntry._date = theCurrentTime.ToShortDateString();
                 
-                Console.WriteLine(anEntry);
+                Console.WriteLine(anEntry._date);
         
             
                 
