@@ -3,13 +3,12 @@ public class PromptGenerator {
 
     public List<string> _prompts = new List<string>()
     {
-        "What has been the most memorable part of your day?"
+        "What has been the most memorable part of your day?",
         "How are you feeling? Explain."
 
     };
-
     Random _randomPrompt = new Random();
-    public string GetRandomPrompt(string text)
+    public string GetRandomPrompt()
     {
         int _randomIndex = _randomPrompt.Next(0, _prompts.Count);
 
@@ -17,5 +16,5 @@ public class PromptGenerator {
 
         return _randomPromptString;
     }
-    }
+    
 }

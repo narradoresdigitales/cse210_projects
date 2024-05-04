@@ -1,6 +1,6 @@
 using System;
-using System.Net;
-using System.IO;
+using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
@@ -21,8 +21,8 @@ class Program
         while (choice != 5)
 
         {
-            Console.Write("Please select one of the following choices \n 1. Write \n 2. Display \n 3. Load \n 4. Save \n 5. Quit \n ");
-            Console.Write("What would you like to do? ");
+            Console.WriteLine("Please select one of the following choices \n 1. Write \n 2. Display \n 3. Load \n 4. Save \n 5. Quit \n ");
+            Console.WriteLine("What would you like to do? ");
             string stringChoice = Console.ReadLine();
             validatorOfTheNumberFromUser = int.TryParse(stringChoice, out number);
 
