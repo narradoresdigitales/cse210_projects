@@ -22,10 +22,14 @@ class Program
             if (userChoice == 1)
             {
                 DateTime theCurrentTime = DateTime.Now;
-                anEntry._date = theCurrentTime.ToShortDateString();
-                
-                Console.WriteLine(anEntry._date);
+                string entryDate = theCurrentTime.ToShortDateString();
+
+                Console.Write("How are you today? ");
+                string response = Console.ReadLine();
+
+                Console.WriteLine($"You answered {response} at {entryDate}");
         
+
             
                 
 
