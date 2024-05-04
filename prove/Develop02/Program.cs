@@ -4,9 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Journal theJournal = new Journal();
-        //Entry anEntry = new Entry();
-        //anEntry.Display();
+        Journal theJournal = new Journal();
+        Entry anEntry = new Entry();
+        anEntry.Display();
 
         int userChoice = -1;
 
@@ -21,14 +21,21 @@ class Program
 
             if (userChoice == 1)
             {
-                Entry newEntry = new Entry();
-                newEntry._promptText = "How do you feel today?";
-                string _entryText = Console.ReadLine();
-                
                 DateTime theCurrentTime = DateTime.Now;
-                string _date = theCurrentTime.ToShortDateString();
+                string entryDate = theCurrentTime.ToShortDateString();
+
+                Console.Write("How are you today? ");
+                string response = Console.ReadLine();
+
+                Console.WriteLine($"You answered '{response}' at {entryDate}");
+        
+
             
-                Console.WriteLine(newEntry);
+                
+
+                
+                
+                
 
                 //Console.WriteLine("You will write a journal entry.");
             }
