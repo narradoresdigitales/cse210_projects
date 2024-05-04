@@ -85,7 +85,7 @@ class Program
                         Console.WriteLine("\n The file was saved successfully.");
                         break;
                         
-                        case2:
+                        case 2:
                             theJournal.SaveToFile($"{nameFile}.csv");
                             Console.WriteLine("\n The file was saved successfully");
                         break;
