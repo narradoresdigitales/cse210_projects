@@ -1,35 +1,61 @@
+using System;
+using System.Diagnostics;
 using System.IO;
-using System.IO.Enumeration;
 public class Journal 
 {
 
-    public List<Entry> _entries;
+    public List<Entry> _entries = new List<Entry>();
 
     public void AddEntry(Entry newEntry)
     {
-
+        _entries.Add(newEntry);
+        Console.WriteLine("\n saved \n");
     }
 
     public void DisplayAll()
     {
-
+        foreach (Entry entry in _entries)
+        {
+            entry.Display();
+        }
     }
-
     public void SaveToFile(string file)
     {
-        Console.Write("What is the file name? \n >");
-        string filename = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(file))
+        {
+            outputFile.WriteLine("date~prompt~answer");
         
-        using (StreamWriter outputFile = new StreamWriter(filename))
+            foreach (Entry i in _entries)    
             {
-                outputFile.WriteLine(filename);  
-                
-            }
-
+                outputFile.WriteLine($"{i._date}~{i._promptText}~{i._entryText}");
+            }    
+        }
     }
 
     public void LoadFromFile(string file)
     {
-        
+        _entries.Clear();
+        Entry anEntryFromFile;
+
+        string[] lines = System.IO.File.ReadAllLines(file);
+
+        if (lines.Length > 0)
+        {
+            foreach (string line in lines)
+            {
+                string[] paragraph = line.Split("~");
+                anEntryFromFile = new Entry();
+                anEntryFromFile._date = paragraph[0];
+                anEntryFromFile._promptText = paragraph[1];
+                anEntryFromFile._entryText = paragraph[2];
+
+                _entries.Add(anEntryFromFile);
+            }
+            _entries.RemoveAt(0);
+        }
+        else
+        {
+            Console.WriteLine("\n The file is empty\n");
+        }
     }
 }
