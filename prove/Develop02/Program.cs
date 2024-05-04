@@ -21,28 +21,21 @@ class Program
 
             if (userChoice == 1)
             {
+                Entry newEntry = new Entry();
+                newEntry._promptText = "How do you feel today?";
+                string _entryText = Console.ReadLine();
                 
-                Console.Write("How do you feel today? ");
-                string entry = Console.ReadLine();
-                
-
-                List<string> entries = new List<string>();
-                string entry1 = entry;
-                entries.Add(entry);
-
                 DateTime theCurrentTime = DateTime.Now;
-                string dateText = theCurrentTime.ToShortDateString();
-                Console.WriteLine(dateText);
-                entries.Add(dateText);
-
-                Console.WriteLine($"You entered: '{entry1}' at {dateText}. Good job!");
+                string _date = theCurrentTime.ToShortDateString();
+            
+                Console.WriteLine(newEntry);
 
                 //Console.WriteLine("You will write a journal entry.");
             }
 
             else if (userChoice == 2)
             {
-                Console.WriteLine("You have chosen to display the journal.");
+                Console.WriteLine(entry1);
             }
             else if (userChoice == 3)
             {
