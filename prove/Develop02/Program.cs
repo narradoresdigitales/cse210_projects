@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net;
 class Program
 {
@@ -18,7 +17,6 @@ class Program
             Console.Write("What would you like to do? ");
             string _promptText = Console.ReadLine();
             userChoice = int.Parse(_promptText);
-            Console.WriteLine(_promptText);
             
 
             if (userChoice == 1)
