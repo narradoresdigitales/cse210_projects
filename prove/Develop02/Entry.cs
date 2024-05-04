@@ -10,8 +10,8 @@ public class Entry
     public string _entryText;
 
 
-    public void Display(string text, string date)
+    public void Display(string date, string text)
     {
-        Console.WriteLine($"You have recorded '{text}' on {date}");
+        Console.WriteLine($"Date: {date} Prompt: '{text}. ");
     }
 }

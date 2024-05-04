@@ -32,9 +32,6 @@ class Program
                 anEntry.Display(anEntry._entryText, anEntry._date);
 
 
-
-
-
             }
 
             else if (userChoice == 2)

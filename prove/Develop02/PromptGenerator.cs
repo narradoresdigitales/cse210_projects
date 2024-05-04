@@ -4,11 +4,11 @@ public class PromptGenerator
     
 
 
-    public string GetRandomPrompt()
+    public string GetRandomPrompt(string text)
     {
         
         Console.Write("What time is it?");
 
-        return "";
+        return text;
     }
 }
