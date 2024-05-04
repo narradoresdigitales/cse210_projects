@@ -25,7 +25,7 @@ class Program
             {
                 Console.Write("How are you today? ");
                 string response = Console.ReadLine();
-                anEntry._entryText = response;
+                response = anEntry._entryText;
 
                 DateTime theCurrentTime = DateTime.Now;
                 string entryDate = theCurrentTime.ToShortDateString();
@@ -46,7 +46,8 @@ class Program
             }
             else if (userChoice == 4)
             {
-                Console.WriteLine("You have chosen to save the journal.");
+                //Console.WriteLine("You have chosen to save the journal.");
+               //anEntry.SaveToFile(anEntry);
             }
 
         }
