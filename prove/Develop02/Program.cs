@@ -27,7 +27,7 @@ class Program
                 Console.WriteLine(entry);
 
                 List<string> entries = new List<string>();
-                Console.WriteLine(entries);
+                string entry1 = entry;
                 entries.Add(entry);
 
                 DateTime theCurrentTime = DateTime.Now;
