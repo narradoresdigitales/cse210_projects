@@ -35,7 +35,7 @@ class Program
                 Console.WriteLine(dateText);
                 entries.Add(dateText);
 
-                Console.WriteLine($"You entered: {entry1} at {dateText}. Good job!");
+                Console.WriteLine($"You entered: '{entry1}' at {dateText}. Good job!");
 
                 //Console.WriteLine("You will write a journal entry.");
             }
