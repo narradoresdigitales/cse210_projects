@@ -24,7 +24,7 @@ class Program
                 
                 Console.Write("How do you feel today? ");
                 string entry = Console.ReadLine();
-                Console.WriteLine(entry);
+                
 
                 List<string> entries = new List<string>();
                 string entry1 = entry;
@@ -34,6 +34,8 @@ class Program
                 string dateText = theCurrentTime.ToShortDateString();
                 Console.WriteLine(dateText);
                 entries.Add(dateText);
+
+                Console.WriteLine($"You entered: {entry1} at {dateText}. Good job!");
 
                 //Console.WriteLine("You will write a journal entry.");
             }
