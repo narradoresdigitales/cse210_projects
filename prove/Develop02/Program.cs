@@ -27,7 +27,7 @@ class Program
                 Console.Write("How are you today? ");
                 string response = Console.ReadLine();
 
-                Console.WriteLine($"You answered {response} at {entryDate}");
+                Console.WriteLine($"You answered '{response}' at {entryDate}");
         
 
             
