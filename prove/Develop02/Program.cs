@@ -24,7 +24,6 @@ class Program
             {
                 Console.Write("How do you feel today? ");
                 string entry = Console.ReadLine();
-
                 Console.WriteLine(entry);
                 
 
