@@ -16,18 +16,26 @@ class Program
         {
             Console.Write("Please select one of the following choices \n 1. Write \n 2. Display \n 3. Load \n 4. Save \n 5. Quit \n ");
             Console.Write("What would you like to do? ");
-            string userEntry = Console.ReadLine();
-            userChoice = int.Parse(userEntry);
-            Console.WriteLine(userChoice);
+            string _promptText = Console.ReadLine();
+            userChoice = int.Parse(_promptText);
+            Console.WriteLine(_promptText);
+            
 
             if (userChoice == 1)
             {
+                
                 Console.Write("How do you feel today? ");
                 string entry = Console.ReadLine();
                 Console.WriteLine(entry);
+
+                List<string> entries = new List<string>();
+                Console.WriteLine(entries);
+                entries.Add(entry);
+
                 DateTime theCurrentTime = DateTime.Now;
                 string dateText = theCurrentTime.ToShortDateString();
                 Console.WriteLine(dateText);
+                entries.Add(dateText);
 
                 //Console.WriteLine("You will write a journal entry.");
             }
