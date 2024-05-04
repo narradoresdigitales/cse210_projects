@@ -5,9 +5,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Journal theJournal = new Journal();
-        Entry anEntry = new Entry();
-        anEntry.Display();
+        //Journal theJournal = new Journal();
+        //Entry anEntry = new Entry();
+        //anEntry.Display();
 
         int userChoice = -1;
 
@@ -22,7 +22,13 @@ class Program
         
             if (userChoice == 1)
             {
-                Console.WriteLine("You will write a journal entry.");
+                Console.Write("How do you feel today? ");
+                string entry = Console.ReadLine();
+
+                Console.WriteLine(entry);
+                
+
+                //Console.WriteLine("You will write a journal entry.");
             }
 
             else if (userChoice == 2)
