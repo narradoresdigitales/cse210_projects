@@ -28,16 +28,11 @@ class Program
                 string response = Console.ReadLine();
 
                 Console.WriteLine($"You answered '{response}' at {entryDate}");
-        
 
             
-                
 
                 
-                
-                
 
-                //Console.WriteLine("You will write a journal entry.");
             }
 
             else if (userChoice == 2)
