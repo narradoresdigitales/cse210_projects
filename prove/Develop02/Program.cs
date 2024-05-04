@@ -6,7 +6,7 @@ class Program
     {
         Journal theJournal = new Journal();
         Entry anEntry = new Entry();
-        anEntry.Display();
+        
 
         int userChoice = -1;
 
@@ -21,13 +21,16 @@ class Program
 
             if (userChoice == 1)
             {
-                DateTime theCurrentTime = DateTime.Now;
-                string entryDate = theCurrentTime.ToShortDateString();
-
                 Console.Write("How are you today? ");
                 string response = Console.ReadLine();
+                anEntry._entryText = response;
 
-                Console.WriteLine($"You answered '{response}' at {entryDate}");
+                DateTime theCurrentTime = DateTime.Now;
+                string entryDate = theCurrentTime.ToShortDateString();
+                anEntry._date = entryDate;
+
+                Console.WriteLine($"You answered '{anEntry._entryText}' at {anEntry._date}");
+                anEntry.Display(anEntry._entryText, anEntry._date);
 
             
 
