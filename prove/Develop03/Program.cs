@@ -24,12 +24,12 @@ class Program
         //https://stackoverflow.com/questions/32655870/how-to-read-enter-from-the-keyboard-to-exit-program
 
         if (string.IsNullOrEmpty(line)) 
-        {
+            {
             Console.WriteLine("Let's begin to study the scriptures.");
             Console.WriteLine();
             Console.WriteLine(  scripture1.GetDisplayText());
             
-        }
+            }
                     
         else
         {
@@ -42,6 +42,10 @@ class Program
             Environment.Exit(0);
         }
 
-        
+        Word w = new Word("Trust in the Lord with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.");
+        Console.WriteLine(w.GetDisplayText());
+
+
+
     } 
 }  

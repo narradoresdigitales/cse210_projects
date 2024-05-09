@@ -5,8 +5,8 @@ class Scripture
     
     private List<Word> _words = new List<Word>()
     {
-        
-    };
+    
+    }
 
     public Scripture(Reference Reference, string text)
     {
