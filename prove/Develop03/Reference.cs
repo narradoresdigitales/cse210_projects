@@ -11,14 +11,19 @@ class Reference
     public Reference(string book, int chapter, int verse)
 
     {
-
+        _book = "Proverbs";
+        _chapter = 3;
+        _verse = 5;
     }
     
-    public Reference(string book, int chapter, int startVerse, int EndVerse)
+    public Reference(string book, int chapter, int startVerse, int endVerse)
     {
-
+        _book = "Proverbs";
+        _chapter = 3;
+        _verse = 5;
+        _endVerse = 6;
     }
-    
+        
     public string GetDisplayText()
     {
         return "";
