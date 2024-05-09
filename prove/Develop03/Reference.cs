@@ -8,6 +8,17 @@ class Reference
     private int _verse;
     private int _endVerse;
 
+    public Reference(string book, int chapter, int verse)
+
+    {
+
+    }
+    
+    public Reference(string book, int chapter, int startVerse, int EndVerse)
+    {
+
+    }
+    
     public string GetDisplayText()
     {
         return "";

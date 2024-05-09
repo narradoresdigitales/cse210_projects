@@ -3,10 +3,17 @@ using System;
 class Scripture
 {
     
-    private List<Word> _words = new List<Word>();
+    private List<Word> _words = new List<Word>()
+    {
 
+    };
 
+    public Scripture(Reference Reference, string text)
+    {
         
+    }
+
+
     public void HideRandomWords(int numberToHide)
     {
 
@@ -17,6 +24,6 @@ class Scripture
             return "";  
     }
 
-    //public bool IsCompletelyHidden();
+    public bool IsCompletelyHidden;
 
 } 
