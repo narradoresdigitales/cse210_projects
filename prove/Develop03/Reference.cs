@@ -11,20 +11,20 @@ class Reference
     public Reference(string book, int chapter, int verse)
 
     {
-        _book = "Proverbs";
-        _chapter = 3;
-        _verse = 5;
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
     }
     
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
-        _book = "Proverbs";
-        _chapter = 3;
-        _verse = 5;
-        _endVerse = 6;
+        _book = book;
+        _chapter = chapter;
+        _verse = startVerse;
+        _endVerse = endVerse;
     }
         
-    public string GetDisplayText()
+    public string GetDisplayText() //print to console the book, chapter and verse(s) to study
     {
         string text = $"{_book} {_chapter}: {_verse}-{_endVerse}";
         return text;
