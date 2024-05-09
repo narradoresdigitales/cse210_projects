@@ -26,7 +26,7 @@ class Reference
         
     public string GetDisplayText() //print to console the book, chapter and verse(s) to study
     {
-        string text = $"{_book} {_chapter}: {_verse}-{_endVerse}";
+        string text = $"{_book} {_chapter}: {_verse}-{_endVerse}   ";
         return text;
     }
 
