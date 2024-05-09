@@ -3,10 +3,8 @@ using System;
 class Scripture
 {
     
-    private List<Word> _words = new List<Word>()
-    {
+    private List<Word> _words = new List<Word>();
     
-    }
 
     public Scripture(Reference Reference, string text)
     {
@@ -21,7 +19,7 @@ class Scripture
     
     public string GetDisplayText()
     {
-            return "Trust in the Lord with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.";  
+            return "";  
     }
 
     public bool IsCompletelyHidden;
