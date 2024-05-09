@@ -28,9 +28,7 @@ class Program
             Console.WriteLine("Let's begin to study the scriptures.");
             Console.WriteLine();
             Console.WriteLine(  scripture1.GetDisplayText());
-            
             }
-                    
         else
         {
             Console.WriteLine();
