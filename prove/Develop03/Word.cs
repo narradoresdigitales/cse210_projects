@@ -10,6 +10,13 @@ class Word
     public Word(string text)
     {
             _text = text;
+            string [] words = _text.Split(' ');
+
+            foreach (var word in words)
+            {
+                System.Console.WriteLine($"<{word}>");
+            }
+
             
     } 
     
