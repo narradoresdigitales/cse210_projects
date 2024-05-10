@@ -1,5 +1,3 @@
-using System;
-
 public class Scripture
 {
     
@@ -31,7 +29,7 @@ public class Scripture
         int _randomWordIndex;
         int _totalWords = _words.Count;
 
-        for (int i = 1; i <- numberToHide; i++)
+        for (int i = 1; i <= numberToHide; i++)
         {
             _randomWordIndex = _randomWord.Next(0, _totalWords);
 
@@ -39,8 +37,10 @@ public class Scripture
             {
                 _words[_randomWordIndex].Hide();
             }
-            else{
+            else
+            {
                 foreach (Word word in _words)
+                
                 {
                     if (word.isHidden() ! = true)
                     {
