@@ -1,21 +1,18 @@
-using System;
-using System.Runtime.CompilerServices;
+using System.Threading.Tasks.Dataflow;
 using System.Text.RegularExpressions;
 
-class Word
+public class Word
 {
     private string _text;
+    private string _originalText;
     private bool _isHidden;
 
     
     public Word(string text)
     {
-           
-
-           /* foreach (var word in words)
-            {
-                System.Console.WriteLine($"{word}");
-            }*/
+        _originalText = text;
+        _text = text;
+        _isHidden = false;
 
             
     } 

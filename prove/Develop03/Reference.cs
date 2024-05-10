@@ -1,7 +1,4 @@
-using System;
-using System.Runtime.CompilerServices;
-
-class Reference
+public class Reference
 {
     private string _book;
     private int _chapter;
@@ -9,7 +6,6 @@ class Reference
     private int _endVerse;
 
     public Reference(string book, int chapter, int verse)
-
     {
         _book = book;
         _chapter = chapter;
@@ -28,9 +24,8 @@ class Reference
         
     public string GetDisplayText() //print to console the book, chapter and verse(s) to study
     {
-        
         string textDisplayed;
-        {
+
             if(_endVerse > 0)
             {
                 textDisplayed = $"{_book} {_chapter}:{_verse}-{_endVerse}";
@@ -39,8 +34,10 @@ class Reference
             {
                 textDisplayed = $"{_book} {_chapter}:{_verse}";
             }
-        }
 
+            return textDisplayed;
     }
+
+
 
 }
