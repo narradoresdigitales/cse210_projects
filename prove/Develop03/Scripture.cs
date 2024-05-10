@@ -65,7 +65,7 @@ public class Scripture
         return textDisplayed.Trim(); 
     }
 
-    public bool IsCompletelyHidden;
+    public bool IsCompletelyHidden()
     {
         bool _completeHidden = false;
         int _count = 0;

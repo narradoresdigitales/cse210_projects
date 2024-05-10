@@ -46,6 +46,4 @@ public class Word
         return _text;  
     }
 
-
-
 }
