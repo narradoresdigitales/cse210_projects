@@ -14,7 +14,7 @@ class Word
 
             foreach (var word in words)
             {
-                System.Console.WriteLine($"<{word}>");
+                System.Console.WriteLine($"{word}");
             }
 
             
