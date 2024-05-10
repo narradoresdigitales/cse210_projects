@@ -29,7 +29,7 @@ class Word
 
     }
 
-    public bool IsHidden;
+    public bool isHidden;
     
     public string GetDisplayText()
     {
