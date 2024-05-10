@@ -72,6 +72,7 @@ public class Scripture
         int _totalWords = _words.Count;
 
         foreach (Word wordi in _words)
+        
         {
             if (wordi.isHidden())
             {
@@ -80,14 +81,12 @@ public class Scripture
         }
 
         if (_count == totalWords)
+        
         {
             _completeHidden = true;
         }
 
         return _completeHidden;
     }
-
-
-
 
 } 
