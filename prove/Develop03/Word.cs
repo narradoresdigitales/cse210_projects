@@ -38,7 +38,7 @@ public class Word
         _isHidden = false;
     }
 
-    public bool isNotInView()
+    public bool isHidden()
     {
         return _isHidden;
     }
