@@ -33,18 +33,18 @@ public class Scripture
         {
             _randomWordIndex = _randomWord.Next(0, _totalWords);
 
-            if (_words[_randomWordIndex].isHidden() != true)
+            if (_words[_randomWordIndex].isNotInView() != true)
             {
                 _words[_randomWordIndex].Hide();
             }
             else
             {
-                foreach (Word word in _words)
+                foreach (Word j in _words)
                 
                 {
-                    if (word.isHidden() ! = true)
+                        if (j.isNotInView() ! = true)
                     {
-                        word.Hide();
+                        j.Hide();
                         break;
                     }
                 }
