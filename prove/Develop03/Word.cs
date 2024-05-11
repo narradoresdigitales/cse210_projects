@@ -2,6 +2,7 @@ using System.Threading.Tasks.Dataflow;
 using System.Text.RegularExpressions;
 
 public class Word
+
 {
     private string _text;
     private string _originalText;

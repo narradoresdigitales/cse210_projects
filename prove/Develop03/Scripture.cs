@@ -71,10 +71,10 @@ public class Scripture
         int _count = 0;
         int _totalWords = _words.Count;
 
-        foreach (Word wordi in _words)
+        foreach (Word word in _words)
         
         {
-            if (wordi.isHidden())
+            if (word.isHidden())
             {
                 _count += 1;
             }
