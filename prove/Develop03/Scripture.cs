@@ -80,7 +80,7 @@ public class Scripture
             }
         }
 
-        if (_count == totalWords)
+        if (_count == _words.Count)
         
         {
             _completeHidden = true;
