@@ -9,6 +9,6 @@ class Program
         
         Console.WriteLine(assign1);
         
-        Console.WriteLine($"Hi {assign1}, Welcome to Learning04 World!");
+        
     }
 }
