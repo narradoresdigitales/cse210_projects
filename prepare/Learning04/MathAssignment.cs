@@ -1,9 +1,5 @@
-public class MathAssignment : Assignment
+public class MathAssignment
 
 {
-
-
-
-
+    
 }
-
