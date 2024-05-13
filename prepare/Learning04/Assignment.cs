@@ -9,7 +9,6 @@ class Assignment
         _studentName = name;
         _topic = topic;
 
-        Console.WriteLine($"{name}, {topic}");
     }
 
     
