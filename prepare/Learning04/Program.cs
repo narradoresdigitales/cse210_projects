@@ -7,7 +7,7 @@ class Program
         
         Assignment assign1 = new Assignment("Marcus", "Programming");
         
-        Console.WriteLine(assign1);
+        Console.WriteLine(assign1.GetSummary());
         
         
     }
