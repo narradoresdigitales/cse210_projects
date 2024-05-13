@@ -6,21 +6,13 @@ public class MathAssignment : Assignment
 
     public MathAssignment(string student, string topic, string textbookSection, string problems) : base(student, topic)
     {
-        _textbookSection = section;
-    }
-
-    public string GetTextbookSection()
-    {
-        return _textbookSection;
-    }
-    public void SetProblems(string problems)
-    {
+        _textbookSection = textbookSection;
         _problems = problems;
     }
 
     public string GetHomeworkList()
     {
-        return $"{_textbookSection} {_problems}";
+        return $"Section {_textbookSection} Problems {_problems}";
     }
 
 

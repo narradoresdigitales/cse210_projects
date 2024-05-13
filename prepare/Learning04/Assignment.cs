@@ -17,7 +17,7 @@ public class Assignment
     public string GetTopic()
     {
         return _topic;
-    }s
+    }
 
     public string GetSummary()
     {
