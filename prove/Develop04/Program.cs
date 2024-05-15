@@ -15,11 +15,12 @@ class Program
             choice = Console.ReadLine();
             if (choice == "1")
             {
-                Console.WriteLine(" 1. You selected to start the breathing activity:");
                 BreathingActivity breathingActivity = new BreathingActivity();
                 breathingActivity.Run();
                 breathingActivity.DisplayStartingMessage();
                 breathingActivity.ShowSpinner(5);
+                breathingActivity.ShowCountDown(5); 
+                breathingActivity.DisplayEndingMessage();
 
             }
             else if (choice == "2")
@@ -32,7 +33,7 @@ class Program
             }
             else if (choice == "4")
             {
-                Console.WriteLine("You selected to start exit. Goodbye");
+                Console.WriteLine("You selected to exit. Goodbye");
             }
             else
             {

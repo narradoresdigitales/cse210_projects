@@ -1,29 +1,39 @@
 public class Activity {
 
-    private string _name;
-    private string _description;
-    private int _duration;
+    protected string _name;
+    protected string _description;
+    protected int _duration;
 
     public Activity()
     {
-
+        //Initialize _name, _description, _duration
+        _name = "";
+        _description = "";
+        _duration = 0;
     }
 
     public void DisplayStartingMessage()
     {
-        Console.WriteLine("Welcome to the Activity.");
-        Console.WriteLine("This activity will help you relax by walking you through.");
-        Console.WriteLine("How long, in second, would you like your session?");
+        //Console.Clear();
+        Console.WriteLine($"Welcome to the {_name}");
+        Console.WriteLine("How long, in second, would you like your session?");  
+        //Prompt for the duration?
+        ShowSpinner(5);
+
     }
     public void DisplayEndingMessage() {
+        Console.WriteLine("Well done!!");
+        ShowSpinner(5);
+        //Console.Clear();
 
     }
 
     public void ShowSpinner(int seconds) {
-
+        //Watch video
+        Console.WriteLine("Spinner!");
     }
     public void ShowCountDown(int seconds) {
-        
+        Console.WriteLine("Countdown!");
     }
 
 }
