@@ -24,8 +24,7 @@ public class ReflectingActivity : Activity
         Console.WriteLine("Consider the following prompt: ");
         Console.WriteLine();
         Console.WriteLine("When you have something in mind, press enter to continue.");
-        DisplayPrompt();
-        DisplayQuestions();
+        
         
 
     }

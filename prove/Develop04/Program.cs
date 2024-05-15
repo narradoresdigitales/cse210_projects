@@ -36,11 +36,10 @@ class Program
             {
                 ListingActivity listingActivity = new ListingActivity();
                 listingActivity.Run();
-                listingActivity.GetRandomPrompt();
-                listingActivity.GetListFromUser();
-                Console.Clear();
+                //listingActivity.GetRandomPrompt();
+                //listingActivity.GetListFromUser();
                 
-                Console.WriteLine(" 3. You selected to start the listening activity:");
+                
             }
             else if (choice == "4")
             {
