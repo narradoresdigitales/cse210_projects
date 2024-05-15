@@ -8,7 +8,7 @@ public BreathingActivity () {
 public void Run() {
     DisplayStartingMessage();
     
-    Console.WriteLine("The activity will help you relax by walking through breathing in and out slowly. Clear your mind and focus on your breathing.")
+    Console.WriteLine("The activity will help you relax by walking through breathing in and out slowly. Clear your mind and focus on your breathing.");
     DateTime startTime = DateTime.Now;
     DateTime stopTime = startTime.AddSeconds(_duration);
 
