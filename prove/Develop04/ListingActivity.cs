@@ -2,6 +2,7 @@ public class ListingActivity : Activity
 {
 
     int _count;
+    
     List<string> list = new List<string>
     {
 
