@@ -19,7 +19,12 @@ public class Activity
     {
         //Console.Clear();
         Console.WriteLine($"Welcome to the {_name}");
-            
+        
+        Console.WriteLine();//spacing
+        
+        Console.WriteLine($"{_description}");
+
+        Console.WriteLine();//spacing
         //Prompt for the duration?
         Console.WriteLine("How long, in seconds, would you like your session? ");  
         string userTime = Console.ReadLine(); 
@@ -30,7 +35,8 @@ public class Activity
     public void DisplayEndingMessage() 
     
     {
-        Console.WriteLine($"The {_name} activity is complete Great job!!");
+        Console.WriteLine($"Well done!!");
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name} activity.");
         ShowSpinner(5);
         //Console.Clear();
 
