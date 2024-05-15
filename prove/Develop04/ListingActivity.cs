@@ -1,12 +1,14 @@
-public class ListingActivity : Activity
-{
+using System.Collections.Generic;
+public class ListingActivity : Activity{
 
     int _count;
-    
-    List<string> list = new List<string>
-    {
 
+    List<string> stringList = new List<string>()
+    {
+    
     };
+        
+    
 
     public ListingActivity()
     {

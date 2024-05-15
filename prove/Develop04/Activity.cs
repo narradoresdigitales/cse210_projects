@@ -36,7 +36,7 @@ public class Activity
     {
         Console.WriteLine($"Well done!!");
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name} activity.");
-        ShowSpinner(5);
+        //ShowSpinner(5);
         //Console.Clear();
 
     }

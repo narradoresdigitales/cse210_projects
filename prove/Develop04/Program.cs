@@ -27,13 +27,10 @@ class Program
             {
                 ReflectingActivity reflectingActivity = new ReflectingActivity();
                 reflectingActivity.Run();
-                reflectingActivity.ShowSpinner(5);
-                reflectingActivity.ShowCountDown(5); 
+                //reflectingActivity.ShowSpinner(5);
                 reflectingActivity.DisplayEndingMessage();
-                reflectingActivity.ShowSpinner(5);
-                Console.Clear();
-
-                Console.WriteLine(" 2. You selected to start the reflecting activity:");
+                
+                
             }
             else if (choice == "3")
             {

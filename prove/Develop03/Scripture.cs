@@ -41,7 +41,7 @@ public class Scripture
             else
             {
                 foreach (Word word in _words)
-               
+            
                 {
                         if (word.isHidden() != true)
                     {
@@ -51,7 +51,7 @@ public class Scripture
                 }
             }
         }
-       
+    
     }
    
     public string GetDisplayText()
