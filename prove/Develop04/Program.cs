@@ -25,10 +25,24 @@ class Program
             }
             else if (choice == "2")
             {
+                ReflectingActivity reflectingActivity = new ReflectingActivity();
+                reflectingActivity.Run();
+                reflectingActivity.ShowSpinner(5);
+                reflectingActivity.ShowCountDown(5); 
+                reflectingActivity.DisplayEndingMessage();
+                reflectingActivity.ShowSpinner(5);
+                Console.Clear();
+
                 Console.WriteLine(" 2. You selected to start the reflecting activity:");
             }
             else if (choice == "3")
             {
+                ListingActivity listingActivity = new ListingActivity();
+                listingActivity.Run();
+                listingActivity.GetRandomPrompt();
+                listingActivity.GetListFromUser();
+                Console.Clear();
+                
                 Console.WriteLine(" 3. You selected to start the listening activity:");
             }
             else if (choice == "4")
