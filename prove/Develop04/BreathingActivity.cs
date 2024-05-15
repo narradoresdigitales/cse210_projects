@@ -8,7 +8,15 @@ public BreathingActivity () {
 public void Run() {
     DisplayStartingMessage();
 
+    DateTime startTime = DateTime.Now;
+    DateTime stopTime = startTime.AddSeconds(_duration);
+
     //Have the user breathe in for 5 seconds
+    do {
+
+    }
+    while (DateTime.Now < stopTime);
+    
     Console.WriteLine("Breathe In");
     ShowCountDown(5);
     

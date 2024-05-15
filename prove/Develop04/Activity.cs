@@ -16,7 +16,7 @@ public class Activity {
     {
         //Console.Clear();
         Console.WriteLine($"Welcome to the {_name}");
-        Console.WriteLine("How long, in second, would you like your session?");  
+        Console.WriteLine("How long, in seconds, would you like your session?");  
         //Prompt for the duration?
         ShowSpinner(5);
 
@@ -33,6 +33,9 @@ public class Activity {
         Console.WriteLine("Spinner!");
     }
     public void ShowCountDown(int seconds) {
+        for (int i=1; i<=seconds; i++)
+        Console.WriteLine(i);
+        Thread.Sleep(1000);
         Console.WriteLine("Countdown!");
     }
 

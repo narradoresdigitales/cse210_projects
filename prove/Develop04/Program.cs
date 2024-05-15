@@ -17,7 +17,7 @@ class Program
             {
                 BreathingActivity breathingActivity = new BreathingActivity();
                 breathingActivity.Run();
-                breathingActivity.DisplayStartingMessage();
+                //breathingActivity.DisplayStartingMessage();
                 breathingActivity.ShowSpinner(5);
                 breathingActivity.ShowCountDown(5); 
                 breathingActivity.DisplayEndingMessage();
