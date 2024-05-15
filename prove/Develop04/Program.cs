@@ -4,6 +4,45 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, Marcus, to Develop04 World!");
+        var choice = "";
+        do{
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine(" 1. Start breathing activity:");
+            Console.WriteLine(" 2. Start reflecting activity:");
+            Console.WriteLine(" 3. Start listening activity:");
+            Console.WriteLine(" 4. Quit:");
+            Console.WriteLine(" Select a choice from the menu.");
+            choice = Console.ReadLine();
+            if (choice == "1")
+            {
+                Console.WriteLine(" 1. You selected to start the breathing activity:");
+                BreathingActivity breathingActivity = new BreathingActivity();
+                breathingActivity.Run();
+                breathingActivity.DisplayStartingMessage();
+                breathingActivity.ShowSpinner(5);
+
+            }
+            else if (choice == "2")
+            {
+                Console.WriteLine(" 2. You selected to start the reflecting activity:");
+            }
+            else if (choice == "3")
+            {
+                Console.WriteLine(" 3. You selected to start the listening activity:");
+            }
+            else if (choice == "4")
+            {
+                Console.WriteLine("You selected to start exit. Goodbye");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Choice. Try again.");
+            }
+
+        }
+        while (choice != "4");
+
+
+
     }
 }

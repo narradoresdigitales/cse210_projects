@@ -1,9 +1,8 @@
-public class Activity
-{
+public class Activity {
 
-    string _name;
-    string _description;
-    int _duration;
+    private string _name;
+    private string _description;
+    private int _duration;
 
     public Activity()
     {
@@ -12,19 +11,18 @@ public class Activity
 
     public void DisplayStartingMessage()
     {
+        Console.WriteLine("Welcome to the Activity.");
+        Console.WriteLine("This activity will help you relax by walking you through.");
+        Console.WriteLine("How long, in second, would you like your session?");
+    }
+    public void DisplayEndingMessage() {
 
     }
-    public void DisplayEndingMessage()
-    {
+
+    public void ShowSpinner(int seconds) {
 
     }
-
-    public void ShowSpinner(int seconds)
-    {
-
-    }
-    public void ShowCountDown(int seconds)
-    {
+    public void ShowCountDown(int seconds) {
         
     }
 

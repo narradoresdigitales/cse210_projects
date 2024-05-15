@@ -1,15 +1,10 @@
-public class BreathingActivity : Activity
+public class BreathingActivity : Activity {
 
-
-{
-
-public BreathingActivity ()
-{
+public BreathingActivity () {
 
 }
 
-public void Run()
-{
+public void Run() {
     
 }
 

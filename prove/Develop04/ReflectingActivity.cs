@@ -1,40 +1,32 @@
 public class ReflectingActivity : Activity
 {
 
-    List<string> _prompts = new List<string>
-    {
+    List<string> _prompts = new List<string> {
 
     };
 
-    List<string> _questions = new List<string>
-    {
+    List<string> _questions = new List<string> {
 
     };
 
-    public ReflectingActivity()
-    {
+    public ReflectingActivity() {
 
     }
 
-    public void Run()
-    {
+    public void Run() {
 
     }
 
-    public string GetRandomPrompt()
-        
-    {
+    public string GetRandomPrompt() {
         return "";
 
     }
 
-    public string GetRandomQuestion()
-    {
+    public string GetRandomQuestion() {
         return "";
     }
 
-    public void DisplayPrompt()
-    {
+    public void DisplayPrompt() {
 
     }
 
