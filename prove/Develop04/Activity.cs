@@ -28,17 +28,21 @@ public class Activity
         Console.Write("How long, in seconds, would you like your session? > ");  
         string userTime = Console.ReadLine(); 
         _duration = int.Parse(userTime);
-
-        //ShowSpinner(5);
+        Console.WriteLine(); 
+        Console.WriteLine("Get ready... "); 
+        ShowSpinner(5);
+        Console.WriteLine("-----------"); 
+    
     }
     public void DisplayEndingMessage() 
     
     {
         Console.WriteLine($"Well done!!");
+        ShowSpinner(5);
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
-        //ShowSpinner(5);
-        //Console.Clear();
+        
+        
 
     }
 
@@ -47,16 +51,8 @@ public class Activity
     {
         //Watch video
         
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(10);
-
-
-
-        while (DateTime.Now < endTime)
-        {
-            
-        }
-
+        //DateTime startTime = DateTime.Now;
+        //DateTime endTime = startTime.AddSeconds(10);
 
         List<string> animationStings = new List<string>();
         animationStings.Add("|");
@@ -67,10 +63,9 @@ public class Activity
         animationStings.Add("-");
         animationStings.Add("\\");
 
-        Console.Write("Get ready  ");
+        
         foreach(string s in animationStings)
         {
-            
             Console.Write(s);
             Thread.Sleep(1000);
             Console.Write("\b \b");
@@ -81,10 +76,72 @@ public class Activity
     public void ShowCountDown(int seconds) 
 
     {
-        for (int i= _duration; i >0; i--)
-        Console.WriteLine($"Time remaining: {i} seconds");
-        Thread.Sleep(1000);
-        Console.WriteLine(); //spacing
+        for (int i= 4; i > 0; i--)
+        {
+            Console.Write(i);
+            //Console.Write(".");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+            
+        }
+        
+        // DateTime startTime = DateTime.Now;
+        // DateTime endTime = startTime.AddSeconds(_duration);
+        
+        // while (DateTime.Now < endTime)
+        // {
+        //     Console.WriteLine();
+        //     Console.WriteLine("Breathe In.");
+        //     Thread.Sleep(5);
+
+        //     Console.WriteLine();
+        //     Console.WriteLine("Breathe Out.");
+        // }
+        
+        // for (int i=1; i < 0; i++)
+        // {
+        // Console.WriteLine($"{i} seconds");
+        // Thread.Sleep(1000);
+        
+        // }
+        // Console.WriteLine(); //spacing
+        //seconds = _duration;
+                
+        // for (int i= _duration; i > 0; i--)
+        // {
+        //     Console.WriteLine();
+        //     Console.WriteLine();
+        //     Console.WriteLine("Breathe In.");
+        //     Thread.Sleep(3000);
+        //     // for (int j= 5; j > 0; j--)
+        //     // {
+        //     //     Console.Write(".");
+        //     //     Thread.Sleep(1000);
+        //     //     Console.Write("\b \b");
+        //     // }
+        //     // Thread.Sleep(1000);
+        //     // Console.WriteLine();
+        //     // Console.WriteLine();
+        //     Console.WriteLine();
+        //     Console.WriteLine("Breathe Out.");
+        //     Thread.Sleep(3000);
+            
+            // for (int j= 5; j > 0; j--)
+            // {
+            //     Console.Write(".");
+            //     Thread.Sleep(1000);
+            //     Console.Write("\b \b");
+            // }
+
+            // Thread.Sleep(1000);
+            // Console.Write(i);
+            // //Console.Write(".");
+            // Thread.Sleep(1000);
+            // Console.Write("\b \b");
+            
+        //}
+    
     }
+    
 
 }
