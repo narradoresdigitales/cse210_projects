@@ -4,41 +4,43 @@ class Program
 {
     static void Main(string[] args)
     {
+        
+        Console.WriteLine("_________________________________________________"); //spacing
+        Console.WriteLine(); //spacing
+        Console.WriteLine(); //spacing
         var choice = "";
         do{
             Console.WriteLine("Menu Options:");
+            Console.WriteLine(); //spacing
             Console.WriteLine(" 1. Start breathing activity:");
             Console.WriteLine(" 2. Start reflecting activity:");
             Console.WriteLine(" 3. Start listing activity:");
             Console.WriteLine(" 4. Quit:");
-            Console.WriteLine(" Select a choice from the menu.");
+
+            Console.WriteLine("_________________________________________________"); //spacing
+            Console.WriteLine(); //spacing
+            Console.WriteLine(); //spacing
+            Console.Write(" Select a choice from the menu: > ");
             choice = Console.ReadLine();
+            
+        
+            
             if (choice == "1")
             {
                 BreathingActivity breathingActivity = new BreathingActivity();
                 breathingActivity.Run();
-                breathingActivity.ShowSpinner(5);
-                breathingActivity.ShowCountDown(5); 
-                breathingActivity.DisplayEndingMessage();
-                breathingActivity.ShowSpinner(5);
-                Console.Clear();
+                                
             }
             else if (choice == "2")
             {
                 ReflectingActivity reflectingActivity = new ReflectingActivity();
                 reflectingActivity.Run();
-                //reflectingActivity.ShowSpinner(5);
-                reflectingActivity.DisplayEndingMessage();
-                Console.Clear();
                 
             }
             else if (choice == "3")
             {
                 ListingActivity listingActivity = new ListingActivity();
                 listingActivity.Run();
-                //listingActivity.GetRandomPrompt();
-                //listingActivity.GetListFromUser();
-                
                 
             }
             else if (choice == "4")
@@ -53,7 +55,7 @@ class Program
         }
         while (choice != "4");
 
-
-
+        
     }
+    
 }

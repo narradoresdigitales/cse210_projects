@@ -25,9 +25,9 @@ public class Activity
 
         Console.WriteLine();//spacing
         //Prompt for the duration?
-        Console.WriteLine("How long, in seconds, would you like your session? ");  
+        Console.Write("How long, in seconds, would you like your session? > ");  
         string userTime = Console.ReadLine(); 
-        _duration = int. Parse(userTime);
+        _duration = int.Parse(userTime);
 
         //ShowSpinner(5);
     }
@@ -35,7 +35,8 @@ public class Activity
     
     {
         Console.WriteLine($"Well done!!");
-        Console.WriteLine($"You have completed another {_duration} seconds of the {_name} activity.");
+        Console.WriteLine();
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
         //ShowSpinner(5);
         //Console.Clear();
 
@@ -45,7 +46,37 @@ public class Activity
     
     {
         //Watch video
-        Console.WriteLine("Spinner!");
+        
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(10);
+
+
+
+        while (DateTime.Now < endTime)
+        {
+            
+        }
+
+
+        List<string> animationStings = new List<string>();
+        animationStings.Add("|");
+        animationStings.Add("/");
+        animationStings.Add("-");
+        animationStings.Add("\\");
+        animationStings.Add("|");
+        animationStings.Add("-");
+        animationStings.Add("\\");
+
+        Console.Write("Get ready  ");
+        foreach(string s in animationStings)
+        {
+            
+            Console.Write(s);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+        
+        
     }
     public void ShowCountDown(int seconds) 
 
@@ -53,7 +84,7 @@ public class Activity
         for (int i= _duration; i >0; i--)
         Console.WriteLine($"Time remaining: {i} seconds");
         Thread.Sleep(1000);
-        Console.WriteLine("Countdown!");
+        Console.WriteLine(); //spacing
     }
 
 }
