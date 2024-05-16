@@ -29,7 +29,7 @@ class Program
                 reflectingActivity.Run();
                 //reflectingActivity.ShowSpinner(5);
                 reflectingActivity.DisplayEndingMessage();
-                
+                Console.Clear();
                 
             }
             else if (choice == "3")
