@@ -3,9 +3,7 @@ using System.Reflection;
 
 public class ReflectingActivity : Activity
 {
-
     List<string> _prompts = new List<string> ();
-
     List<string> _questions = new List<string> ();
 
     
@@ -18,14 +16,13 @@ public class ReflectingActivity : Activity
         "and resilience.This will help you recognize the power you have and how you can use it in other aspects" +
         "of your life."; // I concatenate the text here to view it to avoid horizontal scrolling :/
     }
-
     public void Run() 
     {
         Console.WriteLine();
         Console.WriteLine("_________________________________________________"); //spacing
+        DisplayStartingMessage();
         DateTime startTime = DateTime.Now;
         DateTime stopTime = startTime.AddSeconds(_duration);
-        DisplayStartingMessage();
         Console.WriteLine();
         Console.WriteLine("Consider the following prompt: ");
         Console.WriteLine();
@@ -42,10 +39,9 @@ public class ReflectingActivity : Activity
         
         for (int i= 5; i > 0; i--)
         {
-        Console.Write(i);
-        //Console.Write("."); [an option to replace a number countdown with repeating periods]
-        Thread.Sleep(1000);
-        Console.Write("\b \b");
+            Console.Write(i);//Console.Write("."); [an option to replace a number countdown with repeating periods]
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
             
         }
         Console.WriteLine();
@@ -53,21 +49,18 @@ public class ReflectingActivity : Activity
         DisplayQuestions();
         DisplayEndingMessage();
     }
-
     public string GetRandomPrompt() { // I am not sure how I'll be using this method.
         // Random random = new Random();
         // int index = random.Next(_prompts.Count);
         return "";
         
     }
-
     public string GetRandomQuestion() { // I am not sure how I'll be using this method.
         // Random random = new Random();
         // int index = random.Next(_questions.Count);
         return "";
         
     }
-
     public void DisplayPrompts() 
     {
         _prompts.Add("---How did you feel when it was complete?---");
@@ -82,7 +75,6 @@ public class ReflectingActivity : Activity
         Thread.Sleep(3000);
 
     }
-
     public void DisplayQuestions()
     {
         _questions.Add("---Think of a time when you did something really difficult.---");
@@ -96,15 +88,24 @@ public class ReflectingActivity : Activity
         _questions.Add("---What did you learn about yourself through this experience?---");
         _questions.Add("---How can you keep this experience in mind in the future?---");
         
-        Random random = new Random();
         
-        while(_duration > 0)
+        DateTime startTime = DateTime.Now;
+        DateTime stopTime = startTime.AddSeconds(_duration);
+        while(DateTime.Now < stopTime)
+
         {
+            Random random = new Random();
+        
+            //while(_duration > 0)
+            //{
             int index = random.Next(_questions.Count);
             Console.WriteLine(_questions[index]);
-            Thread.Sleep(3000);
+            Thread.Sleep(10000);
             _duration--;
+            //}
         }
+        
+        
         
 
 

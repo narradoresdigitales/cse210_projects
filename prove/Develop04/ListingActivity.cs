@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-public class ListingActivity : Activity{
+using System.Threading.Tasks.Dataflow;
+public class ListingActivity : Activity
+{
 
-    int _count;
+    //private int _count = 0;
 
     List<string> stringList = new List<string>();
-
-
-    
 
     public ListingActivity()
     {
@@ -15,14 +14,16 @@ public class ListingActivity : Activity{
         " by having you list as many things you can in a certain area."; //concatenation for readability
         _duration = 0; 
     }
-
     public void Run()
-
     {
         Console.WriteLine("_________________________________________________"); //spacing
         Console.WriteLine();
         DisplayStartingMessage();
-        Console.WriteLine(_duration); // test code to ensure the variable is given a value.
+        _duration = 10;
+        DateTime startTime = DateTime.Now;
+        DateTime stopTime = startTime.AddSeconds(_duration);
+        Console.WriteLine(); //spacing
+        Console.WriteLine( _duration); // test code to ensure the variable is given a value.
         Console.WriteLine();
         GetRandomPrompt();
         Console.WriteLine();
@@ -43,7 +44,6 @@ public class ListingActivity : Activity{
         DisplayEndingMessage();
         
     }
-
     public void GetRandomPrompt()
     {
         Console.WriteLine("List as many responses you can to the following prompt:");
@@ -51,20 +51,19 @@ public class ListingActivity : Activity{
         Console.WriteLine("---When have you felt the Holy Ghost this month? ---");
         
     }
-
     public int GetListFromUser(List<string> stringList) //this should not be void. I need to edit!!!
     {
-        while(_duration > 0)
+        DateTime startTime = DateTime.Now;
+        DateTime stopTime = startTime.AddSeconds(_duration);
+        while(DateTime.Now < stopTime)
                 
         {
             string userInput = Console.ReadLine();
+
             stringList.Add(userInput);
             _duration--;
         } 
         return stringList.Count;
-        
-        
-
     }
 
 }
