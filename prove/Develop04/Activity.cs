@@ -18,11 +18,8 @@ public class Activity
     {
         //Console.Clear();
         Console.WriteLine($"Welcome to the {_name}");
-        
         Console.WriteLine();//spacing
-        
         Console.WriteLine($"{_description}");
-
         Console.WriteLine();//spacing
         //Prompt for the duration?
         Console.Write("How long, in seconds, would you like your session? > ");  
