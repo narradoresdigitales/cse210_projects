@@ -4,6 +4,8 @@ public class ListingActivity : Activity{
     int _count;
 
     List<string> stringList = new List<string>();
+
+
     
 
     public ListingActivity()
@@ -20,10 +22,11 @@ public class ListingActivity : Activity{
         Console.WriteLine("_________________________________________________"); //spacing
         Console.WriteLine();
         DisplayStartingMessage();
+        Console.WriteLine(_duration); // test code to ensure the variable is given a value.
         Console.WriteLine();
         GetRandomPrompt();
         Console.WriteLine();
-        Thread.Sleep(1500);
+        Thread.Sleep(1000);
         Console.Write("You may begin in:  ");
         
         for (int i= 5; i > 0; i--)
@@ -34,22 +37,34 @@ public class ListingActivity : Activity{
             Console.Write("\b \b");
             
         }
+        Console.WriteLine(">");
+        GetListFromUser(stringList);
+        Console.WriteLine($"You provided a total of {stringList.Count} entries. ");
         DisplayEndingMessage();
-        Console.WriteLine();
-        Console.WriteLine();
+        
     }
 
     public void GetRandomPrompt()
     {
         Console.WriteLine("List as many responses you can to the following prompt:");
         Console.WriteLine();
-        stringList.Add("---When have you felt the Holy Ghost this month? ---");
-        Console.WriteLine(stringList[0]);
+        Console.WriteLine("---When have you felt the Holy Ghost this month? ---");
+        
     }
 
-    public void GetListFromUser() //this should not be void. I need to edit!!!
+    public int GetListFromUser(List<string> stringList) //this should not be void. I need to edit!!!
     {
-        //List<string>
+        while(_duration > 0)
+                
+        {
+            string userInput = Console.ReadLine();
+            stringList.Add(userInput);
+            _duration--;
+        } 
+        return stringList.Count;
+        
+        
+
     }
 
 }
