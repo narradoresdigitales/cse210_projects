@@ -29,15 +29,15 @@ public class ListingActivity : Activity
         Console.WriteLine();
         Thread.Sleep(1000);
         Console.Write("You may begin in:  ");
-        
-        for (int i= 5; i > 0; i--)
-        {
-            Console.Write(i);
-            //Console.Write(".");
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
+        ShowCountDown(5);
+        // for (int i= 5; i > 0; i--)
+        // {
+        //     Console.Write(i);
+        //     //Console.Write(".");
+        //     Thread.Sleep(1000);
+        //     Console.Write("\b \b");
             
-        }
+        // }
         Console.WriteLine(">");
         GetListFromUser(stringList);
         Console.WriteLine($"You provided a total of {stringList.Count} entries. ");

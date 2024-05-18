@@ -26,9 +26,9 @@ public class ReflectingActivity : Activity
         Console.WriteLine();
         Console.WriteLine("Consider the following prompt: ");
         Console.WriteLine();
-        Thread.Sleep(1500);
+        Thread.Sleep(1000);
         DisplayPrompts();
-        Thread.Sleep(1500);
+        Thread.Sleep(1000);
         Console.WriteLine();
         Console.Write("When you have something in mind, press enter to continue.  ");
         Console.ReadLine(); // pauses the program until the user presses 'Enter'
@@ -36,16 +36,7 @@ public class ReflectingActivity : Activity
         Console.WriteLine();
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience");
         Console.Write("You may begin in: ");
-        
-        for (int i= 5; i > 0; i--)
-        {
-            Console.Write(i);//Console.Write("."); [an option to replace a number countdown with repeating periods]
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
-            
-        }
-        Console.WriteLine();
-        Console.WriteLine();
+        ShowCountDown(5);
         DisplayQuestions();
         DisplayEndingMessage();
     }
@@ -77,16 +68,16 @@ public class ReflectingActivity : Activity
     }
     public void DisplayQuestions()
     {
-        _questions.Add("---Think of a time when you did something really difficult.---");
-        _questions.Add(" ---Why was this experience meaningful to you?---");
-        _questions.Add(" ---Have you ever done anything like this before?---");
-        _questions.Add("---How did you get started?---");
-        _questions.Add("---How did you feel when it was complete?---");
-        _questions.Add("---What made this time different than other times when you were not as successful?---");
-        _questions.Add("---What is your favorite thing about this experience?---");
-        _questions.Add(" ---What could you learn from this experience that applies to other situations?---");
-        _questions.Add("---What did you learn about yourself through this experience?---");
-        _questions.Add("---How can you keep this experience in mind in the future?---");
+        _questions.Add(" > Think of a time when you did something really difficult.");
+        _questions.Add(" > Why was this experience meaningful to you?");
+        _questions.Add(" > Have you ever done anything like this before?");
+        _questions.Add(" > How did you get started?");
+        _questions.Add(" > How did you feel when it was complete?");
+        _questions.Add(" > What made this time different than other times when you were not as successful?");
+        _questions.Add(" > What is your favorite thing about this experience?");
+        _questions.Add("  > What could you learn from this experience that applies to other situations?");
+        _questions.Add(" > What did you learn about yourself through this experience?");
+        _questions.Add(" > How can you keep this experience in mind in the future?");
         
         
         DateTime startTime = DateTime.Now;
@@ -100,6 +91,7 @@ public class ReflectingActivity : Activity
             //{
             int index = random.Next(_questions.Count);
             Console.WriteLine(_questions[index]);
+            ShowSpinner(10);
             Thread.Sleep(10000);
             _duration--;
             //}
