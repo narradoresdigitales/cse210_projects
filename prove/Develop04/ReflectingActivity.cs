@@ -1,6 +1,8 @@
 using System.Diagnostics.Contracts;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Threading;
+using System;
 
 public class ReflectingActivity : Activity
 {
@@ -36,13 +38,14 @@ public class ReflectingActivity : Activity
         _description = "This Activity will help you reflect on times in your life when you have shown strength" +
         "and resilience.This will help you recognize the power you have and how you can use it in other aspects" +
         "of your life."; // I concatenate the text here to view it to avoid horizontal scrolling :/
-        _duration = 45;
+        _duration = 0;
     }
     public void Run()
     {
         Console.WriteLine();
         Console.WriteLine("_________________________________________________"); //spacing
         DisplayStartingMessage();
+        _duration = 45;
         DateTime startTime = DateTime.Now;
         DateTime stopTime = DateTime.Now.AddSeconds(_duration);
         Console.WriteLine();
@@ -83,15 +86,14 @@ public class ReflectingActivity : Activity
     }
     public void DisplayQuestions()
     {
-        DateTime startTime = DateTime.Now;
-        DateTime stopTime = startTime.AddSeconds(_duration);
+        DateTime stopTime = DateTime.Now.AddSeconds(_duration);
         while (DateTime.Now < stopTime)
 
         {
             Console.WriteLine(GetRandomQuestion());
             ShowSpinner(10);
             Thread.Sleep(10000);
-        
+            
         }
 
 
