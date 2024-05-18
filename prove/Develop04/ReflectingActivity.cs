@@ -1,5 +1,6 @@
 using System.Diagnostics.Contracts;
 using System.Reflection;
+using System.Collections.Generic;
 
 public class ReflectingActivity : Activity
 {
@@ -11,8 +12,8 @@ public class ReflectingActivity : Activity
     "---Think of a time when you helped someone in need.---",
     "---Think of a time when you did something truly selfless.---",
     };
-    
-    List<string> _questions = new List<string> 
+
+    List<string> _questions = new List<string>
     {
         " > Think of a time when you did something really difficult.",
         " > Why was this experience meaningful to you?",
@@ -27,22 +28,25 @@ public class ReflectingActivity : Activity
 
     };
 
-    
-    public ReflectingActivity() 
+
+    public ReflectingActivity()
     {
         Console.WriteLine();
         _name = "Reflecting Activity.";
         _description = "This Activity will help you reflect on times in your life when you have shown strength" +
         "and resilience.This will help you recognize the power you have and how you can use it in other aspects" +
         "of your life."; // I concatenate the text here to view it to avoid horizontal scrolling :/
+        _duration = 45;
     }
-    public void Run() 
+    public void Run()
     {
         Console.WriteLine();
         Console.WriteLine("_________________________________________________"); //spacing
         DisplayStartingMessage();
+        DateTime startTime = DateTime.Now;
         DateTime stopTime = DateTime.Now.AddSeconds(_duration);
         Console.WriteLine();
+        Console.WriteLine(_duration);
         Console.WriteLine("Consider the following prompt: ");
         Console.WriteLine();
         Thread.Sleep(1000);
@@ -55,42 +59,44 @@ public class ReflectingActivity : Activity
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience");
         Console.Write("You may begin in: ");
         ShowCountDown(5);
-        DisplayQuestions(stopTime);
+        DisplayQuestions();
         DisplayEndingMessage();
     }
-    public string GetRandomPrompt() 
-    { 
+    public string GetRandomPrompt()
+    {
         Random random = new Random();
         int index = random.Next(_prompts.Count);
         return _prompts[index];
-    
+
     }
-    public string GetRandomQuestion(DateTime stopTime) 
-    { 
+    public string GetRandomQuestion()
+    {
         Random random = new Random();
         int index = random.Next(_questions.Count);
         return _questions[index];
     }
-    public void DisplayPrompts() 
+    public void DisplayPrompts()
     {
         Console.WriteLine(GetRandomPrompt());
         Thread.Sleep(3000);
 
     }
-    public void DisplayQuestions(DateTime stopTime)
+    public void DisplayQuestions()
     {
-        Random random = new Random();
-        
+        DateTime startTime = DateTime.Now;
+        DateTime stopTime = startTime.AddSeconds(_duration);
         while (DateTime.Now < stopTime)
+
         {
             Console.WriteLine(GetRandomQuestion());
             ShowSpinner(10);
             Thread.Sleep(10000);
-                        
+        
         }
-    
+
 
     }
+
 
 
 }
