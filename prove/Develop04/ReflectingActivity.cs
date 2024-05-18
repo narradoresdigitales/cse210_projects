@@ -2,6 +2,9 @@
 using System.Diagnostics.Contracts;
 using System.Reflection;
 
+
+
+// OLDER CODE 
 public class ReflectingActivity : Activity
 {
     List<string> _prompts = new List<string> ();
@@ -134,9 +137,13 @@ public class ReflectingActivity : Activity
 
 
 
-// ///___________________________________________________________________________________________________________________________
+//_________________________________________________________________________________________________________________
+//NEW CODE
 
+/*
+    I am having issues with the DisplayQuestions method. Will use older code
 
+*/ 
 
 // using System.Diagnostics.Contracts;
 // using System.Reflection;
