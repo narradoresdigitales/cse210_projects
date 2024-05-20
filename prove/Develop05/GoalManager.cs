@@ -48,7 +48,7 @@ public class GoalManager
                 Console.WriteLine(" 3. Checklist Goals");
                 Console.WriteLine(); //spacing
                 Console.Write(" Which type of goal would you like to create?  > ");
-                choice = Console.ReadLine();
+                choice1 = Console.ReadLine();
                 
 
                 if (choice1 == "1")
@@ -56,6 +56,7 @@ public class GoalManager
                     Console.WriteLine("-------------------------------------");
                     Console.WriteLine("You have chosen to make a Simple Goal.");
                     Console.WriteLine();
+                    Console.WriteLine("What is the name of your goal? ");
                     string name = Console.ReadLine();
                     Console.WriteLine("What is a short description of it? ");
                     string description = Console.ReadLine();
@@ -63,6 +64,7 @@ public class GoalManager
                     string points = Console.ReadLine();
                     SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
                     _goals.Add(simpleGoal);
+
 
                 }
                 else if (choice1 == "2")
@@ -87,7 +89,12 @@ public class GoalManager
             }
             else if (choice == "2")
             {
-                
+                Console.WriteLine("List of Goals: ");
+                foreach (Goal goal in _goals)
+                {
+                    Console.WriteLine($"Name: {goal._shortName}, Description: {goal._description}, Points: {goal._points}");
+                    Console.WriteLine();
+                }
                 
             }
             else if (choice == "3")
