@@ -5,14 +5,19 @@ public class GoalManager
 
 {
     List<Goal> _goals = new List<Goal>();
-
     public int _score = 0;
 
-    public GoalManager()
+    public GoalManager();
 
     public void Start()
+    {
+        DisplayPlayerInfo();
+    }
 
     pubic void DisplayPlayerInfo()
+    {
+        Console.WriteLine($"You have {_score} points.");
+    }
 
     public void ListGoalNames()
 
