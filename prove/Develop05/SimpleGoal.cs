@@ -9,7 +9,6 @@ public class SimpleGoal : Goal
         
     }
 
-
     // public void RecordEvent()
     // {
     // }

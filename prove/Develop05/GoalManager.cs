@@ -1,4 +1,4 @@
-
+using System.IO;
 using System.ComponentModel;
 
 public class GoalManager
@@ -53,25 +53,11 @@ public class GoalManager
 
                 if (choice1 == "1")
                 {
-                    Console.WriteLine("-------------------------------------");
-                    Console.WriteLine("You have chosen to make a Simple Goal.");
-                    Console.WriteLine();
-                    Console.WriteLine("What is the name of your goal? ");
-                    string name = Console.ReadLine();
-                    Console.WriteLine("What is a short description of it? ");
-                    string description = Console.ReadLine();
-                    Console.WriteLine("What is its point value? ");
-                    string points = Console.ReadLine();
-                    SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
-                    _goals.Add(simpleGoal);
-
-
+                    CreateSimpleGoal();
                 }
                 else if (choice1 == "2")
                 {
-                    Console.WriteLine("-------------------------------------");
-                    Console.WriteLine("You have chosen to make an Eternal Goal.");
-                    Console.WriteLine();
+                    CreateEternalGoal();
                 }
                 else if (choice1 == "3")
                 {
@@ -92,20 +78,17 @@ public class GoalManager
                 Console.WriteLine("List of Goals: ");
                 foreach (Goal goal in _goals)
                 {
-                    Console.WriteLine($"Name: {goal._shortName}, Description: {goal._description}, Points: {goal._points}");
-                    Console.WriteLine();
+                    Console.WriteLine($"{goal._shortName} ({goal._description})");
                 }
                 
             }
             else if (choice == "3")
             {
-                
-                
+                SaveGoals();
             }
             else if (choice == "4")
             {
-                
-                
+                LoadGoals();
             }
             else if (choice == "5")
             {
@@ -136,21 +119,83 @@ public class GoalManager
 
     }
 
-    public void CreateGoal()
+    public void CreateSimpleGoal()
     {
-        Console.WriteLine("What is the name of your goal?");
+        Console.WriteLine("-------------------------------------");
+        Console.WriteLine("You have chosen to make a Simple Goal.");
+        Console.WriteLine();
+        Console.WriteLine("What is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.WriteLine("What is a short description of it? ");
+        string description = Console.ReadLine();
+        Console.WriteLine("What is its point value for this goal? ");
+        string points = Console.ReadLine();
+        SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
+        _goals.Add(simpleGoal);
+    
+    }
 
-        
+    public void CreateEternalGoal()
+    {
+        Console.WriteLine("-------------------------------------");
+        Console.WriteLine("You have chosen to make an Eternal Goal.");
+        Console.WriteLine();
+        Console.WriteLine("What is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.WriteLine("What is a short description of it? ");
+        string description = Console.ReadLine();
+        Console.WriteLine("What is its point value for this goal? ");
+        string points = Console.ReadLine();
+        EternalGoal eternalGoal = new EternalGoal(name, description, points);
+        _goals.Add(eternalGoal);
     }
 
     // public RecordEvent()
 
-    // public void SaveGoals()
+    public void SaveGoals()
+    {
+        Console.WriteLine("What is the file name for the goal file? ");
+        string filePath = Console.ReadLine();
+        using (StreamWriter writer = new StreamWriter(filePath))
 
-    // public void LoadGoals()
+        {
+            foreach (Goal goal in _goals)
+            {
+                string line = $"{goal._shortName}, {goal._description}, {goal._points}";
+                writer.WriteLine(line);
+            }
+        }
+
+        Console.WriteLine("Goals have been saved to " + filePath); 
+    }
+
+    public void LoadGoals()
+
+    {
+        Console.WriteLine("What is the filename for the goal file? ");
+        string filePath = Console.ReadLine();
+        if (File.Exists(filePath))
+        {
+            _goals.Clear();
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+                    if (parts.Length == 3)
+                    {
+                        Goal goal = new Goal(parts[0], parts[1], parts[2]);
+                        _goals.Add(goal);
+                    }
+                
+                }
+            }
+        }
+    }
 
 
 
 
-}
+} 
 
