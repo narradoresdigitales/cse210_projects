@@ -12,14 +12,20 @@ public class GoalManager
         DisplayPlayerInfo();
     }
 
-    pubic void DisplayPlayerInfo()
+    public void DisplayPlayerInfo()
     {
         Console.WriteLine($"You have {_score} points.");
     }
 
     public void ListGoalNames()
+    {
+
+    }
 
     public void CreateGoal()
+    {
+        
+    }
 
     // public RecordEvent()
 
