@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 class Program
 {
@@ -21,6 +23,20 @@ class Program
         circle.SetColor("red");
         double circleArea = circle.GetArea();
         Console.WriteLine($"The third shape is a {circle.GetColor()} circled with an area of {circle.GetArea():F2}.");
+
+        List<Shape> shapes = new List<Shape>();
+        shapes.Add(square);
+        shapes.Add(rectangle);
+        shapes.Add(circle);
+
+        foreach (Shape s in shapes)
+        {
+            
+            string colors = s.GetColor();
+            double shapeAreas  = s.GetArea();
+            Console.WriteLine($" The {colors} shape has an area of {shapeAreas:F2}." );
+        }
+
 
 
     }

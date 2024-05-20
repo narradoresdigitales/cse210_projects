@@ -2,7 +2,7 @@ using System;
 
 public class Square : Shape
 {
-    private int _side;
+    private double _side;
 
     public Square(int side)
     {
