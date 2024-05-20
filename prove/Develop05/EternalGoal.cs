@@ -1,19 +1,19 @@
-public class EternalGoal : Goal
-{
+// public class EternalGoal : Goal
+// {
 
-    public string EternalGoal() : Goal(name, description, points)
-    {
-    }
-    public void RecordEvent()
-    {
-    }
+//     public string EternalGoal() : Goal(name, description, points)
+//     {
+//     }
+//     public void RecordEvent()
+//     {
+//     }
 
-    public bool IsComplete()
-    {
-    }
+//     public bool IsComplete()
+//     {
+//     }
 
-    public string GetStringRepresentation()
-    {
-    }
+//     public string GetStringRepresentation()
+//     {
+//     }
 
-}
+// }

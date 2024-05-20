@@ -1,5 +1,3 @@
-using.System.Collections.Generic;
-
 
 public class GoalManager
 
@@ -23,11 +21,11 @@ public class GoalManager
 
     public void CreateGoal()
 
-    public RecordEvent()
+    // public RecordEvent()
 
-    public void SaveGoals()
+    // public void SaveGoals()
 
-    public void LoadGoals()
+    // public void LoadGoals()
 
 
 
