@@ -7,7 +7,7 @@ public class Goal
     public string _points;
 
 
-    public string Goal(string name, string description, string points) // constructor
+    public Goal(string name, string description, string points) // constructor
     {
         _shortName = name;
         _description = description;
@@ -18,17 +18,18 @@ public class Goal
     {
     }
 
-    public bool IsComplete()
-    {
-    }
+    // public bool IsComplete()
+    // {
+    //     return IsComplete;
+    // }
 
-    public string GetDetailsString()
-    {
-    }
+    // public string GetDetailsString()
+    // {
+    // }
 
-    public string GetStringRepresentation()
-    {
-    }
+    // public string GetStringRepresentation()
+    // {
+    // }
 
 
 

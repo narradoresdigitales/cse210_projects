@@ -4,22 +4,22 @@ public class SimpleGoal : Goal
 
     public bool _isComplete;
 
-    public string SimpleGoal() : Goal(name, description, points)
+    public SimpleGoal(string name, string description, string points) : base(name, description, points)
     {
 
     }
 
 
-    public void RecordEvent()
-    {
-    }
+    // public void RecordEvent()
+    // {
+    // }
 
-    public bool IsComplete()
-    {
-    }
+    // public bool IsComplete()
+    // {
+    // }
 
-    public string GetStringRepresentation()
-    {
-    }
+    // public string GetStringRepresentation()
+    // {
+    // }
 
 }
