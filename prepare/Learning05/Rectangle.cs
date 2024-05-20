@@ -1,14 +1,23 @@
 using System;
+using System.Runtime.CompilerServices;
 
-class Rectangle : Shape
+public class Rectangle : Shape
 {
 
-    public double _length;
-    public double _width;
+    private double _length;
+    private double _width;
 
-public override double GetArea()
-{
-    return _length * _width; 
-}
+    
+    public Rectangle(double length, double width)
+    {
+        _length = length;
+        _width = width;
+    }
+    
+    
+    public override double GetArea()
+    {
+        return _length * _width; 
+    }
 
 }
