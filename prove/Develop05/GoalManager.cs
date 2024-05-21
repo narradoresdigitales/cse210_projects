@@ -76,10 +76,11 @@ public class GoalManager
             else if (choice == "2")
             {
                 Console.WriteLine("List of Goals: ");
-                foreach (Goal goal in _goals)
-                {
-                    Console.WriteLine($"{goal._shortName} ({goal._description})");
-                }
+                ListGoalNames();
+                // foreach (Goal goal in _goals)
+                // {
+                //     Console.WriteLine($"{goal._shortName} ({goal._description})");
+                // }
                 
             }
             else if (choice == "3")
@@ -116,7 +117,10 @@ public class GoalManager
 
     public void ListGoalNames()
     {
-
+        foreach (Goal goal in _goals)
+        {
+        Console.WriteLine($"{goal._shortName} ({goal._description})");
+        }
     }
 
     public void CreateSimpleGoal()
