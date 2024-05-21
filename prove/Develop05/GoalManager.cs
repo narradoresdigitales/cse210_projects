@@ -123,6 +123,11 @@ public class GoalManager
         }
     }
 
+    public void ListGoalDetails()
+    {
+
+    }
+
     public void CreateSimpleGoal()
     {
         Console.WriteLine("-------------------------------------");
@@ -135,6 +140,7 @@ public class GoalManager
         Console.WriteLine("What is its point value for this goal? ");
         string points = Console.ReadLine();
         SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
+
         _goals.Add(simpleGoal);
     
     }

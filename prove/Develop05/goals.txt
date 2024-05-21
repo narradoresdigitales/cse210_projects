@@ -1,2 +1,3 @@
-prayer, say a prayer today, 25
-scripture study, read the scriptures daily for 15 minutes, 25
+prayer,  say a prayer today,  25
+scripture study,  read the scriptures daily for 15 minutes,  25
+run, run 4 miles a day, 50
