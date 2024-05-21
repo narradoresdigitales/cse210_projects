@@ -1,23 +1,23 @@
-using System.ComponentModel;
+// using System.ComponentModel;
 
-public class EternalGoal : Goal
+// public class EternalGoal : Goal
 
-{
+// {
 
-    public  EternalGoal(string name, string description, string points) : base(name, description, points)
-    {
+//     public  EternalGoal(string name, string description, string points) : base(name, description, points)
+//     {
     
-    }
-//     public void RecordEvent()
-//     {
 //     }
+// //     public void RecordEvent()
+// //     {
+// //     }
 
-//     public bool IsComplete()
-//     {
-//     }
+// //     public bool IsComplete()
+// //     {
+// //     }
 
-//     public string GetStringRepresentation()
-//     {
-//     }
+// //     public string GetStringRepresentation()
+// //     {
+// //     }
 
-}
+// }

@@ -54,10 +54,14 @@ public class GoalManager
                 if (choice1 == "1")
                 {
                     CreateSimpleGoal();
+                
                 }
                 else if (choice1 == "2")
                 {
-                    CreateEternalGoal();
+                    Console.WriteLine("-------------------------------------");
+                    Console.WriteLine("You have chosen to make an Checklist Goal.");
+                    Console.WriteLine();
+                    
                 }
                 else if (choice1 == "3")
                 {
@@ -77,11 +81,6 @@ public class GoalManager
             {
                 Console.WriteLine("List of Goals: ");
                 ListGoalNames();
-                // foreach (Goal goal in _goals)
-                // {
-                //     Console.WriteLine($"{goal._shortName} ({goal._description})");
-                // }
-                
             }
             else if (choice == "3")
             {
@@ -115,14 +114,30 @@ public class GoalManager
         Console.WriteLine($"You have {_score} points.");
     }
 
+    // public void ListGoalNames()
+    // {
+    //     foreach (Goal goal in _goals)
+    //     {
+    //     Console.WriteLine($"{goal._shortName} ({goal._description})");
+    //     }
+    // }
+
     public void ListGoalNames()
     {
+        if (_goals.Count ==0)
+        {
+            Console.WriteLine("No goals available.");
+            return;
+        }
+        
         foreach (Goal goal in _goals)
         {
-        Console.WriteLine($"{goal._shortName} ({goal._description})");
+            Console.WriteLine($"{goal.ShortName} ({goal.Description})");
         }
     }
-
+    
+    
+    
     public void ListGoalDetails()
     {
 
@@ -139,26 +154,25 @@ public class GoalManager
         string description = Console.ReadLine();
         Console.WriteLine("What is its point value for this goal? ");
         string points = Console.ReadLine();
-        SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
-
+        SimpleGoal simpleGoal = new SimpleGoal(name,description, points );
         _goals.Add(simpleGoal);
     
     }
 
-    public void CreateEternalGoal()
-    {
-        Console.WriteLine("-------------------------------------");
-        Console.WriteLine("You have chosen to make an Eternal Goal.");
-        Console.WriteLine();
-        Console.WriteLine("What is the name of your goal? ");
-        string name = Console.ReadLine();
-        Console.WriteLine("What is a short description of it? ");
-        string description = Console.ReadLine();
-        Console.WriteLine("What is its point value for this goal? ");
-        string points = Console.ReadLine();
-        EternalGoal eternalGoal = new EternalGoal(name, description, points);
-        _goals.Add(eternalGoal);
-    }
+    // public void CreateEternalGoal()
+    // {
+    //     Console.WriteLine("-------------------------------------");
+    //     Console.WriteLine("You have chosen to make an Eternal Goal.");
+    //     Console.WriteLine();
+    //     Console.WriteLine("What is the name of your goal? ");
+    //     string name = Console.ReadLine();
+    //     Console.WriteLine("What is a short description of it? ");
+    //     string description = Console.ReadLine();
+    //     Console.WriteLine("What is its point value for this goal? ");
+    //     string points = Console.ReadLine();
+    //     EternalGoal eternalGoal = new EternalGoal(name, description, points);
+    //     _goals.Add(eternalGoal);
+    // }
 
     // public RecordEvent()
 
@@ -171,7 +185,7 @@ public class GoalManager
         {
             foreach (Goal goal in _goals)
             {
-                string line = $"{goal._shortName}, {goal._description}, {goal._points}";
+                string line = $"\"{goal.ShortName}\", \"{goal.Description}\", \"{goal.Points}\"";
                 writer.WriteLine(line);
             }
         }
@@ -193,10 +207,32 @@ public class GoalManager
                 while ((line = reader.ReadLine()) != null)
                 {
                     string[] parts = line.Split(',');
-                    if (parts.Length == 3)
+                    if (parts.Length >= 3) // ensure there are at least 3 parts
                     {
-                        Goal goal = new Goal(parts[0], parts[1], parts[2]);
-                        _goals.Add(goal);
+                        string name= parts[0].Trim().Trim('"'); //trim whitespace
+                        string description = parts[1];
+                        string points = parts[2].Trim().Trim('"');
+                                                
+                        Goal goal = new SimpleGoal(name, description, points);
+                        
+                        
+                        if (goal != null)
+                        {
+                            _goals.Add(goal);
+                        }
+                        // else if (goalType == EternalGoal)
+                        // {
+                        //     goal = new EternalGoal(name, description, points);
+                        // }
+                        // else if (goalType == ChecklistGoal)
+                        // {
+                        //     goal = new ChecklistGoal(name, description, points);
+                        // }
+                                        
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Invalid line format: {line}");
                     }
                 
                 }

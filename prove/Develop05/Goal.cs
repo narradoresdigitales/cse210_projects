@@ -1,36 +1,48 @@
-public class Goal
-
+public abstract class Goal
 {
+    protected string _shortName = "";
+    protected string _description = "";
+    protected string _points = "0";
 
-    public string _shortName = "";
-    public string _description = "";
-    public string _points = "0";
+    protected bool _isComplete = false;
 
-
-    public Goal(string name, string description, string points) // constructor
+    protected Goal(string name, string description, string points) // constructor
     {
         _shortName = name;
         _description = description;
         _points = points;
     }
 
-    public void RecordEvent()
+    // public properties to access values in GoalManager
+    public string ShortName 
     {
+        get {return _shortName;}
+        //set { _shortName = value;}
     }
 
-    // public bool IsComplete()
-    // {
-    //     return IsComplete;
-    // }
-
-    // public string GetDetailsString()
-    // {
-    // }
-
-    // public string GetStringRepresentation()
-    // {
-    // }
+    public string Description 
+    {
+        get {return _description;}
+        //set { _description = value;}
+    }
+    public string Points 
+    {
+        get {return _points;}
+        //set { _points = value;}
+    }
 
 
+
+    public abstract void RecordEvent();
+    
+
+    public abstract bool IsComplete(); 
+
+
+    public abstract string GetDetailsString();
+    
+
+    public abstract string GetStringRepresentation();
+    
 
 }
