@@ -63,9 +63,7 @@ public class GoalManager
                 }
                 else if (choice1 == "3")
                 {
-                    Console.WriteLine("-------------------------------------");
-                    Console.WriteLine("You have chosen to make an Checklist Goal.");
-                    Console.WriteLine();
+                    CreateChecklistGoal();
                 }
                 else
                 {
@@ -171,6 +169,32 @@ public class GoalManager
         EternalGoal eternalGoal = new EternalGoal(name, description, points);
         _goals.Add(eternalGoal);
     }
+
+
+public void CreateChecklistGoal()
+    {
+        Console.WriteLine("-------------------------------------");
+        Console.WriteLine("You have chosen to make an Eternal Goal.");
+        Console.WriteLine();
+        Console.WriteLine("What is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.WriteLine("What is a short description of it? ");
+        string description = Console.ReadLine();
+        Console.WriteLine("What is its point value for this goal? ");
+        string points = Console.ReadLine();
+        Console.WriteLine("How many times does this goal need to be accomplished for a bonus? ");
+        string targetInput = Console.ReadLine();
+        int target = int.Parse(targetInput);
+        Console.WriteLine("What is the bonus for accomplishing it that many times? ");
+        string bonusInput = Console.ReadLine();
+        int bonus = int.Parse(bonusInput);
+        ChecklistGoal checklistGoal = new ChecklistGoal(name, description, points, target, bonus);
+        _goals.Add(checklistGoal);
+    }
+
+
+
+
 
     // public RecordEvent()
 

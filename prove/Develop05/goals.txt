@@ -1,3 +1,5 @@
-Cooking,   Make pizza this Friday, 100
-Running,  Run 5 days a week, 150
-Scriptures, Read the scriptures daily for 15 minutes, 50
+Cooking,     Make pizza this Friday, 100
+Running,    Run 5 days a week, 150
+Scriptures,   Read the scriptures daily for 15 minutes, 50
+Temple attendance,  Attend the temple in May 2023, 150
+Study, Study for classes, 50
