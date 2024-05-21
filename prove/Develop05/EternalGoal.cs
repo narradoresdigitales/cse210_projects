@@ -1,23 +1,26 @@
-// using System.ComponentModel;
+public class EternalGoal : Goal
+{
 
-// public class EternalGoal : Goal
-
-// {
-
-//     public  EternalGoal(string name, string description, string points) : base(name, description, points)
-//     {
+    public  EternalGoal(string name, string description, string points) : base(name, description, points)
+    {
     
-//     }
-// //     public void RecordEvent()
-// //     {
-// //     }
+    }
+    public override void RecordEvent()
+    {
+    }
 
-// //     public bool IsComplete()
-// //     {
-// //     }
+    public override bool IsComplete()
+    {
+        return _isComplete;
+    }
 
-// //     public string GetStringRepresentation()
-// //     {
-// //     }
+    public override string GetStringRepresentation()
+    {
+        return $"Name: {_shortName}\nDescription: {_description}\nPoints: {_points}\n IsComplete: {_isComplete}";
+    }
 
-// }
+    public override string GetDetailsString() {
+        return $"Name: {_shortName}\nDescription: {_description}\nPoints: {_points}\n IsComplete: {_isComplete}";
+    }
+
+} 

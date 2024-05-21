@@ -1,3 +1,3 @@
-"Serie A", " " "Watch more soccer""", "25"
-"Coursera", " "Study AI development 5 days a week"", "100"
-"Cooking", "Make pizza every Friday", "100"
+Cooking,   Make pizza this Friday, 100
+Running,  Run 5 days a week, 150
+Scriptures, Read the scriptures daily for 15 minutes, 50

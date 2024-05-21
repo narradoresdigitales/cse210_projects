@@ -58,9 +58,7 @@ public class GoalManager
                 }
                 else if (choice1 == "2")
                 {
-                    Console.WriteLine("-------------------------------------");
-                    Console.WriteLine("You have chosen to make an Checklist Goal.");
-                    Console.WriteLine();
+                    CreateEternalGoal();
                     
                 }
                 else if (choice1 == "3")
@@ -159,20 +157,20 @@ public class GoalManager
     
     }
 
-    // public void CreateEternalGoal()
-    // {
-    //     Console.WriteLine("-------------------------------------");
-    //     Console.WriteLine("You have chosen to make an Eternal Goal.");
-    //     Console.WriteLine();
-    //     Console.WriteLine("What is the name of your goal? ");
-    //     string name = Console.ReadLine();
-    //     Console.WriteLine("What is a short description of it? ");
-    //     string description = Console.ReadLine();
-    //     Console.WriteLine("What is its point value for this goal? ");
-    //     string points = Console.ReadLine();
-    //     EternalGoal eternalGoal = new EternalGoal(name, description, points);
-    //     _goals.Add(eternalGoal);
-    // }
+    public void CreateEternalGoal()
+    {
+        Console.WriteLine("-------------------------------------");
+        Console.WriteLine("You have chosen to make an Eternal Goal.");
+        Console.WriteLine();
+        Console.WriteLine("What is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.WriteLine("What is a short description of it? ");
+        string description = Console.ReadLine();
+        Console.WriteLine("What is its point value for this goal? ");
+        string points = Console.ReadLine();
+        EternalGoal eternalGoal = new EternalGoal(name, description, points);
+        _goals.Add(eternalGoal);
+    }
 
     // public RecordEvent()
 
@@ -185,7 +183,7 @@ public class GoalManager
         {
             foreach (Goal goal in _goals)
             {
-                string line = $"\"{goal.ShortName}\", \"{goal.Description}\", \"{goal.Points}\"";
+                string line = $"{goal.ShortName}, {goal.Description}, {goal.Points}";
                 writer.WriteLine(line);
             }
         }
