@@ -15,12 +15,12 @@ public class SimpleGoal : Goal
     }
 
     public override string GetStringRepresentation() {
-        return $"Name: {_shortName}, Description: {_description}, Points: {_points}, IsComplete: {_isComplete}";
+        return $" [ ] {_shortName}, ({_description})";
     }
 
 
     public override string GetDetailsString() {
-        return $"Name: {_shortName}\nDescription: {_description}\nPoints: {_points}\n IsComplete: {_isComplete}";
+        return $" [ ] {_shortName} Description: {_description} Points: {_points}  IsComplete: {_isComplete}";
     }
 
 }

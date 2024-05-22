@@ -7,14 +7,11 @@ public class GoalManager
     List<Goal> _goals = new List<Goal>();
     public int _score = 0;
 
-
-
     public void Start()
     {
         Console.WriteLine("_________________________________________________"); //spacing
         Console.WriteLine(); //spacing
-        DisplayPlayerInfo();
-
+        
 
 
         Console.WriteLine("_________________________________________________"); //spacing
@@ -22,6 +19,8 @@ public class GoalManager
         Console.WriteLine(); //spacing
         var choice = "";
         do{
+            DisplayPlayerInfo();
+            
             Console.WriteLine("Menu Options:");
             Console.WriteLine(); //spacing
             Console.WriteLine(" 1. Create New Goal");
@@ -50,19 +49,13 @@ public class GoalManager
                 Console.Write(" Which type of goal would you like to create?  > ");
                 choice1 = Console.ReadLine();
                 
-
-                if (choice1 == "1")
-                {
+                if (choice1 == "1") {
                     CreateSimpleGoal();
-                
                 }
-                else if (choice1 == "2")
-                {
+                else if (choice1 == "2") {
                     CreateEternalGoal();
-                    
                 }
-                else if (choice1 == "3")
-                {
+                else if (choice1 == "3") {
                     CreateChecklistGoal();
                 }
                 else
@@ -71,12 +64,12 @@ public class GoalManager
                     Console.WriteLine("Invalid Choice. Try again.");
                     Console.WriteLine();
                 }
-                                
             }
             else if (choice == "2")
             {
                 Console.WriteLine("List of Goals: ");
                 ListGoalNames();
+                Console.WriteLine();
             }
             else if (choice == "3")
             {
@@ -126,16 +119,23 @@ public class GoalManager
             return;
         }
         
+        int counter = 1;
         foreach (Goal goal in _goals)
         {
-            Console.WriteLine($"{goal.ShortName} ({goal.Description})");
+            Console.WriteLine($"{counter}.{goal.GetStringRepresentation()}");
+            counter++;
         }
+
+        
     }
     
     
     
-    public void ListGoalDetails()
+    public void ListGoalDetails(Goal SimpleGoal, Goal EternalGoal, Goal ChecklistGoal) //call GetDeatilsString()
     {
+        Console.WriteLine($"{SimpleGoal.GetDetailsString()}");
+        Console.WriteLine($"{EternalGoal.GetDetailsString()}");
+        Console.WriteLine($"{ChecklistGoal.GetDetailsString()}");
 
     }
 
