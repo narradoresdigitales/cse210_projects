@@ -178,7 +178,21 @@ public void CreateChecklistGoal() {
 
     public void RecordEvent() {
 
+        ListGoalNames();
+        Console.WriteLine("Which goal have you completed? ");
+    
+
+
+
     }
+
+
+
+
+
+
+
+
     
                         /// <summary>
                         ///  This code is buggy. I runs and displays points but it does not update the _goals list and display the 'completed' representation of the goal
@@ -198,6 +212,8 @@ public void CreateChecklistGoal() {
     //         Goal selectedGoal = _goals[goalNumber - 1];
     //         selectedGoal.RecordEvent();
 
+    
+
     //         if (selectedGoal.IsComplete()) {
 
     //             _score =+ int.Parse(selectedGoal.Points);
@@ -210,9 +226,6 @@ public void CreateChecklistGoal() {
     //     else {
     //         Console.WriteLine("Invalid selection.kk Please try again.");
     //     }
-        
-    
-        
         
     // }
 

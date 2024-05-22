@@ -15,7 +15,7 @@ public class SimpleGoal : Goal
     }
 
     public override string GetStringRepresentation() {
-        return $" [{(_isComplete ? "X" : " " )}] {_shortName}, ({_description })";
+        return $" [X] {_shortName}, ({_description })";
     }
 
 
