@@ -71,18 +71,17 @@ public class GoalManager
                 ListGoalNames();
                 Console.WriteLine();
             }
-            else if (choice == "3")
-            {
+            else if (choice == "3") {
+
                 SaveGoals();
             }
-            else if (choice == "4")
-            {
+            else if (choice == "4") {
+
                 LoadGoals();
             }
-            else if (choice == "5")
-            {
-                
-                
+            else if (choice == "5") {
+
+                RecordEvent();
             }
             else if (choice == "6")
             {
@@ -93,26 +92,15 @@ public class GoalManager
             {
                 Console.WriteLine("Invalid Choice. Try again.");
             }
-
         }
         while (choice != "6");
     }
 
-    public void DisplayPlayerInfo()
-    {
+    public void DisplayPlayerInfo() {
         Console.WriteLine($"You have {_score} points.");
     }
 
-    // public void ListGoalNames()
-    // {
-    //     foreach (Goal goal in _goals)
-    //     {
-    //     Console.WriteLine($"{goal._shortName} ({goal._description})");
-    //     }
-    // }
-
-    public void ListGoalNames()
-    {
+    public void ListGoalNames() {
         if (_goals.Count ==0)
         {
             Console.WriteLine("No goals available.");
@@ -120,18 +108,16 @@ public class GoalManager
         }
         
         int counter = 1;
-        foreach (Goal goal in _goals)
+        foreach (Goal goal in _goals) 
         {
-            Console.WriteLine($"{counter}.{goal.GetStringRepresentation()}");
+            Console.WriteLine($"{counter}.{goal.GetDetailsString()}");
             counter++;
         }
-
-        
     }
     
     
     
-    public void ListGoalDetails(Goal SimpleGoal, Goal EternalGoal, Goal ChecklistGoal) //call GetDeatilsString()
+    public void ListGoalDetails(Goal SimpleGoal, Goal EternalGoal, Goal ChecklistGoal) //call GetDetailsString()
     {
         Console.WriteLine($"{SimpleGoal.GetDetailsString()}");
         Console.WriteLine($"{EternalGoal.GetDetailsString()}");
@@ -155,8 +141,7 @@ public class GoalManager
     
     }
 
-    public void CreateEternalGoal()
-    {
+    public void CreateEternalGoal() {
         Console.WriteLine("-------------------------------------");
         Console.WriteLine("You have chosen to make an Eternal Goal.");
         Console.WriteLine();
@@ -171,8 +156,7 @@ public class GoalManager
     }
 
 
-public void CreateChecklistGoal()
-    {
+public void CreateChecklistGoal() {
         Console.WriteLine("-------------------------------------");
         Console.WriteLine("You have chosen to make an Eternal Goal.");
         Console.WriteLine();
@@ -192,14 +176,47 @@ public void CreateChecklistGoal()
         _goals.Add(checklistGoal);
     }
 
+    public void RecordEvent() {
 
+    }
+    
+                        /// <summary>
+                        ///  This code is buggy. I runs and displays points but it does not update the _goals list and display the 'completed' representation of the goal
+                        /// </summary>
+    // {
+    //     if (_goals.Count ==0)
+    //     {
+    //         Console.WriteLine("No goals available to record an event.");
+    //         return;
+    //     }
+    //     ListGoalNames();
+    //     Console.WriteLine("Select a goal to record an event: ");
+    //     Console.Write("Enter the number of the goal you want to complete: ");
+        
+    //     if (int.TryParse(Console.ReadLine(), out int goalNumber ) && goalNumber > 0 && goalNumber <= _goals.Count) {
 
+    //         Goal selectedGoal = _goals[goalNumber - 1];
+    //         selectedGoal.RecordEvent();
 
+    //         if (selectedGoal.IsComplete()) {
 
-    // public RecordEvent()
+    //             _score =+ int.Parse(selectedGoal.Points);
+    //             Console.WriteLine("Event recorded. ");                
+    //         }
+    //         else {
+    //             Console.WriteLine("Event recorded. Goal progress updated.");
+    //         }
+    //     }
+    //     else {
+    //         Console.WriteLine("Invalid selection.kk Please try again.");
+    //     }
+        
+    
+        
+        
+    // }
 
-    public void SaveGoals()
-    {
+    public void SaveGoals() {
         Console.WriteLine("What is the file name for the goal file? ");
         string filePath = Console.ReadLine();
         using (StreamWriter writer = new StreamWriter(filePath))
@@ -215,9 +232,7 @@ public void CreateChecklistGoal()
         Console.WriteLine("Goals have been saved to " + filePath); 
     }
 
-    public void LoadGoals()
-
-    {
+    public void LoadGoals() {
         Console.WriteLine("What is the filename for the goal file? ");
         string filePath = Console.ReadLine();
         if (File.Exists(filePath))
@@ -242,15 +257,7 @@ public void CreateChecklistGoal()
                         {
                             _goals.Add(goal);
                         }
-                        // else if (goalType == EternalGoal)
-                        // {
-                        //     goal = new EternalGoal(name, description, points);
-                        // }
-                        // else if (goalType == ChecklistGoal)
-                        // {
-                        //     goal = new ChecklistGoal(name, description, points);
-                        // }
-                                        
+                                
                     }
                     else
                     {
@@ -261,8 +268,6 @@ public void CreateChecklistGoal()
             }
         }
     }
-
-
 
 
 } 

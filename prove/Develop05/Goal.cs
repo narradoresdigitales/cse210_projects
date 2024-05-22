@@ -14,6 +14,8 @@ public abstract class Goal
     }
 
     // public properties to access values in GoalManager
+    // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/get
+    //https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers
     public string ShortName 
     {
         get {return _shortName;}
@@ -33,8 +35,8 @@ public abstract class Goal
 
 
 
-    public abstract void RecordEvent();
-    
+    public abstract void RecordEvent(); 
+
 
     public abstract bool IsComplete(); 
 
@@ -42,7 +44,7 @@ public abstract class Goal
     public abstract string GetDetailsString();
     
 
-    public abstract string GetStringRepresentation();
+    public abstract string GetStringRepresentation(); 
     
 
 }
