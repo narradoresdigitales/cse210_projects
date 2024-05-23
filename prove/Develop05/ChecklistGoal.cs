@@ -1,22 +1,29 @@
 public class ChecklistGoal : Goal
 
 {
-    public int _amountCompleted;
-    public int _target;
+    public int AmountCompleted {get; set;}
+    public int Target {get; set;}
 
-    public int _bonus;
+    public int Bonus {get; set;}
 
     public ChecklistGoal(string name, string description, string points, int target, int bonus) : base (name, description, points) 
     
     {
-        _bonus = bonus;
-        _target = target;
-        
+        Target = target;
+        Bonus = bonus;
+        AmountCompleted = 0;
+        _isComplete = false;
     }
 
     
     public override void RecordEvent() {
-        _isComplete = true;
+        AmountCompleted++;
+        if(AmountCompleted >= Target)
+        {
+            _isComplete = true;
+            int totalPoints = int.Parse(_points) + Bonus;
+            _points = totalPoints.ToString();
+        }
     }
 
     public override bool IsComplete() {
@@ -28,7 +35,7 @@ public class ChecklistGoal : Goal
     }
 
     public override string GetDetailsString() {
-        return $" [ ] {_shortName} ({_description}) --- Currently completed: {_amountCompleted} / {_target}";
+        return $" [ ] {_shortName} ({_description}) --- Currently completed: {AmountCompleted} / {Target}";
 
     }
 

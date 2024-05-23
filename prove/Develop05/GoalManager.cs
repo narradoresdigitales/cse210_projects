@@ -82,6 +82,7 @@ public class GoalManager
             else if (choice == "5") {
 
                 RecordEvent();
+                
             }
             else if (choice == "6")
             {
@@ -180,54 +181,45 @@ public void CreateChecklistGoal() {
 
         ListGoalNames();
         Console.WriteLine("Which goal have you completed? ");
+        
+        /// <summary>
+        ///  This code is buggy. I runs and displays points but it does not update the _goals list and display the 'completed' representation of the goal
+         /// </summary>
     
+        if (_goals.Count ==0) {
+            Console.WriteLine("No goals available to record an event.");
+            return;
+        }
+        
+        
+        Console.WriteLine("Select a goal to record an event: ");
+        Console.Write("Enter the number of the goal you want to complete: ");
+        
+        if (int.TryParse(Console.ReadLine(), out int goalNumber ) && goalNumber > 0 && goalNumber <= _goals.Count) 
+        
+        {
 
+            Goal selectedGoal = _goals[goalNumber - 1];
+            selectedGoal.RecordEvent();
 
+    
+            if (selectedGoal.IsComplete()) {
 
+                _score =+ int.Parse(selectedGoal.Points);
+                Console.WriteLine("Event recorded. ");                
+            }
+            else {
+                Console.WriteLine("Event recorded. Goal progress updated.");
+            }
+        }
+        else {
+            Console.WriteLine("Invalid selection. Please try again.");
+        }
+        
     }
-
-
-
-
-
-
-
-
-    
-                        /// <summary>
-                        ///  This code is buggy. I runs and displays points but it does not update the _goals list and display the 'completed' representation of the goal
-                        /// </summary>
-    // {
-    //     if (_goals.Count ==0)
-    //     {
-    //         Console.WriteLine("No goals available to record an event.");
-    //         return;
-    //     }
-    //     ListGoalNames();
-    //     Console.WriteLine("Select a goal to record an event: ");
-    //     Console.Write("Enter the number of the goal you want to complete: ");
-        
-    //     if (int.TryParse(Console.ReadLine(), out int goalNumber ) && goalNumber > 0 && goalNumber <= _goals.Count) {
-
-    //         Goal selectedGoal = _goals[goalNumber - 1];
-    //         selectedGoal.RecordEvent();
-
     
 
-    //         if (selectedGoal.IsComplete()) {
 
-    //             _score =+ int.Parse(selectedGoal.Points);
-    //             Console.WriteLine("Event recorded. ");                
-    //         }
-    //         else {
-    //             Console.WriteLine("Event recorded. Goal progress updated.");
-    //         }
-    //     }
-    //     else {
-    //         Console.WriteLine("Invalid selection.kk Please try again.");
-    //     }
-        
-    // }
 
     public void SaveGoals() {
         Console.WriteLine("What is the file name for the goal file? ");
@@ -237,7 +229,7 @@ public void CreateChecklistGoal() {
         {
             foreach (Goal goal in _goals)
             {
-                string line = $"{goal.ShortName}, {goal.Description}, {goal.Points}";
+                string line = $"{goal.GetDetailsString()}";
                 writer.WriteLine(line);
             }
         }
@@ -259,12 +251,32 @@ public void CreateChecklistGoal() {
                     string[] parts = line.Split(',');
                     if (parts.Length >= 3) // ensure there are at least 3 parts
                     {
-                        string name= parts[0].Trim().Trim('"'); //trim whitespace
-                        string description = parts[1];
-                        string points = parts[2].Trim().Trim('"');
+                        string goalType = parts[0].Trim().Trim('"');
+                        string name= parts[1].Trim().Trim('"'); //trim whitespace
+                        string description = parts[2];
+                        string points = parts[3].Trim().Trim('"');
+
+
                                                 
-                        Goal goal = new SimpleGoal(name, description, points);
-                        
+                        Goal goal = null;
+                        if (goalType == "SimpleGoal" && parts.Length == 4)
+                        {
+                            goal = new SimpleGoal(name, description, points);
+                        }
+                        else if (goalType == "EternalGoal" && parts.Length == 4)
+                        {
+                            goal = new EternalGoal(name, description, points);
+                        }
+                        else if (goalType == "ChecklistGoal" && parts.Length == 7)
+                        {
+                            int target = int.Parse(parts[4].Trim().Trim('"'));
+                            int bonus = int.Parse(parts[5].Trim().Trim('"'));
+                            int amountCompleted = int.Parse(parts[6].Trim().Trim('"'));
+
+                            
+                            var checklistGoal = new ChecklistGoal(name, description, points, target, bonus);
+                            checklistGoal.AmountCompleted = amountCompleted;
+                        }
                         
                         if (goal != null)
                         {
