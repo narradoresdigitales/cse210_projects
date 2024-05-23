@@ -16,11 +16,11 @@ public class EternalGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return $"Name: {_shortName}\nDescription: {_description}\nPoints: {_points}\n IsComplete: {_isComplete}";
+        return $"{_shortName} ({_description}) {_points} {_isComplete}";
     }
 
     public override string GetDetailsString() {
-        return $"Name: {_shortName}\nDescription: {_description}\nPoints: {_points}\n IsComplete: {_isComplete}";
+        return $" [ ] {_shortName} ({_description})";
     }
 
 } 

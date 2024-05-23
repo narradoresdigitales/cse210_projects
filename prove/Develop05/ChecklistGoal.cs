@@ -9,6 +9,9 @@ public class ChecklistGoal : Goal
     public ChecklistGoal(string name, string description, string points, int target, int bonus) : base (name, description, points) 
     
     {
+        _bonus = bonus;
+        _target = target;
+        
     }
 
     
@@ -21,11 +24,12 @@ public class ChecklistGoal : Goal
     }
     
     public override string GetStringRepresentation() {
-        return $"Name: {_shortName}, Description: {_description}, Points: {_points}, IsComplete: {_isComplete}";
+        return $" [ ]{_shortName}, ({_description})";
     }
 
     public override string GetDetailsString() {
-        return $"Name: {_shortName}\nDescription: {_description}\nPoints: {_points}\n IsComplete: {_isComplete}";
+        return $" [ ] {_shortName} ({_description}) --- Currently completed: {_amountCompleted} / {_target}";
+
     }
 
 

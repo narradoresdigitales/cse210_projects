@@ -20,7 +20,7 @@ public class SimpleGoal : Goal
 
 
     public override string GetDetailsString() {
-        return $" [ ] {_shortName} Description: {_description}";
+        return $" [ ] {_shortName} {_description}";
     }
 
 }
