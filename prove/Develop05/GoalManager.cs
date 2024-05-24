@@ -1,5 +1,6 @@
 using System.IO;
 using System.ComponentModel;
+using System.Security.Cryptography;
 
 public class GoalManager
 
@@ -101,7 +102,9 @@ public class GoalManager
         Console.WriteLine($"You have {_score} points.");
     }
 
-    public void ListGoalNames() {
+    public void ListGoalNames() 
+    {
+        
         if (_goals.Count ==0)
         {
             Console.WriteLine("No goals available.");
@@ -111,18 +114,31 @@ public class GoalManager
         int counter = 1;
         foreach (Goal goal in _goals) 
         {
-            Console.WriteLine($"{counter}.{goal.GetDetailsString()}");
+            if (goal is ChecklistGoal checklistGoal)
+            {
+                Console.WriteLine($"{counter}. [ ] {goal.ShortName} ({goal.Description}) [{checklistGoal.AmountCompleted} / {checklistGoal.Target}]");
+            }
+            else if (goal is EternalGoal)
+            {
+                Console.WriteLine($"{counter}. [ ] {goal.ShortName} ({goal.Description})");
+            }
+            else if (goal is SimpleGoal)
+            {
+                Console.WriteLine($"{counter}. [ ] {goal.ShortName} ({goal.Description})");
+            }
             counter++;
         }
     }
     
     
     
-    public void ListGoalDetails(Goal SimpleGoal, Goal EternalGoal, Goal ChecklistGoal) //call GetDetailsString()
+    public void ListGoalDetails(List<Goal> goals) //call GetDetailsString()
     {
-        Console.WriteLine($"{SimpleGoal.GetDetailsString()}");
-        Console.WriteLine($"{EternalGoal.GetDetailsString()}");
-        Console.WriteLine($"{ChecklistGoal.GetDetailsString()}");
+        foreach (Goal goal in goals)
+
+        {
+            Console.WriteLine(goal.GetDetailsString());
+        }
 
     }
 
@@ -220,7 +236,6 @@ public void CreateChecklistGoal() {
     
 
 
-
     public void SaveGoals() {
         Console.WriteLine("What is the file name for the goal file? ");
         string filePath = Console.ReadLine();
@@ -229,15 +244,15 @@ public void CreateChecklistGoal() {
         {
             foreach (Goal goal in _goals)
             {
-                string line = $"{goal.GetDetailsString()}";
-                writer.WriteLine(line);
+                writer.WriteLine(goal.GetStringRepresentation());
             }
         }
 
         Console.WriteLine("Goals have been saved to " + filePath); 
     }
 
-    public void LoadGoals() {
+        public void LoadGoals() 
+    {
         Console.WriteLine("What is the filename for the goal file? ");
         string filePath = Console.ReadLine();
         if (File.Exists(filePath))
@@ -248,52 +263,72 @@ public void CreateChecklistGoal() {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    string[] parts = line.Split(',');
-                    if (parts.Length >= 3) // ensure there are at least 3 parts
+                    if (line.Contains(" --- Currently completed"))
                     {
-                        string goalType = parts[0].Trim().Trim('"');
-                        string name= parts[1].Trim().Trim('"'); //trim whitespace
-                        string description = parts[2];
-                        string points = parts[3].Trim().Trim('"');
-
-
-                                                
-                        Goal goal = null;
-                        if (goalType == "SimpleGoal" && parts.Length == 4)
+                        string[] parts = line.Split(new string[] { " --- Currently completed"}, StringSplitOptions.None);
+                        if (parts.Length == 2)
                         {
-                            goal = new SimpleGoal(name, description, points);
-                        }
-                        else if (goalType == "EternalGoal" && parts.Length == 4)
-                        {
-                            goal = new EternalGoal(name, description, points);
-                        }
-                        else if (goalType == "ChecklistGoal" && parts.Length == 7)
-                        {
-                            int target = int.Parse(parts[4].Trim().Trim('"'));
-                            int bonus = int.Parse(parts[5].Trim().Trim('"'));
-                            int amountCompleted = int.Parse(parts[6].Trim().Trim('"'));
+                            string goalPart = parts[0].Trim();
+                            string statusPart = parts[1].Trim();
 
+                            int nameEnd = goalPart.IndexOf('(');
+                            string name = goalPart.Substring(0, nameEnd).Trim();
+                            string description = goalPart.Substring(nameEnd + 1, goalPart.Length - nameEnd -2).Trim(' ', '(', ')');
                             
-                            var checklistGoal = new ChecklistGoal(name, description, points, target, bonus);
-                            checklistGoal.AmountCompleted = amountCompleted;
+                            string[] statusParts = statusPart.Split(new string[] { ":", " /"}, StringSplitOptions.RemoveEmptyEntries);
+                            if (statusParts.Length == 2)
+                            {
+                                if(int.TryParse(statusParts[0].Trim(), out int amountCompleted) && int.TryParse(statusParts[1].Trim(), out int target))
+                                {
+                                    _goals.Add(new ChecklistGoal(name, description, "0", target, 0) { AmountCompleted = amountCompleted});
+                                }
+                                else
+                                { 
+                                    Console.WriteLine($"Invalid status format: {statusPart}");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Invalid status format {statusPart}");
+                            }
                         }
-                        
-                        if (goal != null)
+                        else
                         {
-                            _goals.Add(goal);
+                            Console.WriteLine($"Invalid line format {line}");
                         }
-                                
                     }
                     else
                     {
-                        Console.WriteLine($"Invalid line format: {line}");
+                        string[]parts = line.Split(',');
+                        if (parts.Length == 2)
+                        {
+                            string name = parts[0].Trim();
+                            string description = parts[1].Trim(' ', '(', ')');
+                            _goals.Add(new SimpleGoal(name, description, "0"));
+                        }
+                        else if (parts.Length >= 3)
+                        {
+                            string name = parts[0].Trim();
+                            string description = parts[1].Trim(' ', '(', ')');
+                            string points = parts[2].Trim();
+                            _goals.Add(new EternalGoal(name, description, points));
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Invalid line format {line}");
+                        }
                     }
-                
+                                                
                 }
+                    
             }
         }
+        else
+        {
+            Console.WriteLine("File does not exist");
+        }
+                    
     }
-
 
 } 
 
