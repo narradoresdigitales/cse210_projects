@@ -124,7 +124,7 @@ public class GoalManager
             }
             else if (goal is SimpleGoal)
             {
-                Console.WriteLine($"{counter}. [ ] {goal.ShortName} ({goal.Description})");
+                Console.WriteLine($"{counter}. [ ] {goal.ShortName} ({goal.Description}) ");
             }
             counter++;
         }
@@ -132,12 +132,16 @@ public class GoalManager
     
     
     
-    public void ListGoalDetails(List<Goal> goals) //call GetDetailsString()
+    public void ListGoalDetails(Goal SimpleGoal, Goal EternalGoal, Goal ChecklistGoal) //call GetDetailsString()
     {
-        foreach (Goal goal in goals)
+        //foreach (Goal goal in goals)
 
         {
-            Console.WriteLine(goal.GetDetailsString());
+            //Console.WriteLine(goal.GetDetailsString());
+            Console.WriteLine($"{SimpleGoal.GetDetailsString()}");
+            Console.WriteLine($"{EternalGoal.GetDetailsString()}");
+            Console.WriteLine($"{ChecklistGoal.GetDetailsString()}");
+
         }
 
     }
@@ -214,14 +218,13 @@ public void CreateChecklistGoal() {
         if (int.TryParse(Console.ReadLine(), out int goalNumber ) && goalNumber > 0 && goalNumber <= _goals.Count) 
         
         {
-
             Goal selectedGoal = _goals[goalNumber - 1];
             selectedGoal.RecordEvent();
 
     
             if (selectedGoal.IsComplete()) {
 
-                _score =+ int.Parse(selectedGoal.Points);
+                _score += int.Parse(selectedGoal.Points);
                 Console.WriteLine("Event recorded. ");                
             }
             else {
@@ -327,8 +330,8 @@ public void CreateChecklistGoal() {
         {
             Console.WriteLine("File does not exist");
         }
-                    
-    }
+    }              
+    
 
 } 
 
