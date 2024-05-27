@@ -25,9 +25,9 @@ public class Product
 
     // The total cost of this product is computed by multiplying the price per unit and the quantity. 
     // (If the price per unit was $3 and they bought 5 of them, the product total cost would be $15.)
-    public double CalculateTotalCost()
+    public double GetTotalCost()
     {
-       return ProdPrice * Quantity;
+       return Math.Round(ProdPrice * Quantity, 2);
         
     }
 

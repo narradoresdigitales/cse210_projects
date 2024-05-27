@@ -15,14 +15,29 @@ class Program
     
 
         Address address1 = new Address("123 Main St", "Happy Town", "Texas", "USA");
-        bool isInUsa = address1.IsInUSA();
-        Console.WriteLine($"Is in USA: {isInUSA}");
-
-        string fullAddress = address1.GetFullAddress();
-        Console.WriteLine("Full Address:");
-        Console.WriteLine(fullAddress);
-
-
+        Address address2 = new Address("123 Calle Main", "Good Winds", "Buenos Aires", "ARG");
+        
+        Customer customer1 = new Customer("Marcus Palmer", address1);
+        Customer customer2 = new Customer("Silvano Palmer", address2);
+        
+        Order order1 = new Order(customer1);
+        Order order2 = new Order(customer2);
+        
+        order1.AddProduct(prod1);
+        order1.AddProduct(prod2);
+        order1.AddProduct(prod3);
+        Console.WriteLine("Order 1 Details:");
+        order1.DisplayOrderDetails();
+        Console.WriteLine($"Total Cost for Order 1: ${order1.CalculateTotalCost():F2}");
+        
+        Console.WriteLine();
+        order2.AddProduct(prod4);
+        order2.AddProduct(prod5);
+        Console.WriteLine("Order 2 Details:");
+        order2.DisplayOrderDetails();
+        Console.WriteLine($"Total Cost for Order 2: ${order2.CalculateTotalCost():F2}");
+        
+        
 
     }
 }

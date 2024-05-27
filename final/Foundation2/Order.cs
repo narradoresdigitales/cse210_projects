@@ -32,7 +32,7 @@ public void AddProduct(Product product)
         double totalCost = 0;
         foreach (var product in Products)
         {
-            totalCost += product.CalculateTotalCost();
+            totalCost += product.GetTotalCost();
         }
 
         if (!Customer.IsInUSA())
@@ -40,7 +40,7 @@ public void AddProduct(Product product)
             totalCost += 15;
         }
 
-        return totalCost;
+        return Math.Round(totalCost,2);
     }
 
 //return string for the packing label
@@ -49,17 +49,21 @@ public void AddProduct(Product product)
 
     public void DisplayOrderDetails()
     {
-        Console.WriteLine("Order Details:");
+        Console.WriteLine($"Customer: {Customer.Name}");
+        Console.WriteLine($"Shipping Label: \n{Customer.Address.GetFullAddress()}"); 
+        Console.WriteLine();
+        Console.WriteLine("Packing Label:");
+        
         foreach (var product in Products)
         {
-            Console.WriteLine($"{product.ProductName}) ({product.ProdID} x {product.Quantity} = ${product.CalculateTotalCost()}");
+            Console.WriteLine($"{product.ProductName} ({product.ProdID}) x {product.Quantity} = ${product.GetTotalCost()}");
         }
     
     //return string for the shipping label
     //A shipping label should list the name and address of the customer
-    Console.WriteLine($"Customer: {Customer.Name}");
-    Console.WriteLine($"Shipping Address \n {Customer.Address.GetFullAddress()}"); 
-    Console.WriteLine($"Total Cost: ${CalculateTotalCost()}");
+    // Console.WriteLine();
+    // Console.WriteLine($"Total Cost: ${CalculateTotalCost()}");
+    // Console.WriteLine();
 
     }
 
