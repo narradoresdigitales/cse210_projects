@@ -1,13 +1,13 @@
 public class Cycling:  Activity
 
 {
-    private double minutes;
+    public double Duration {get; private set;}
 
-    public Cycling(string date, double distance, double minutes) : base(date, distance)
+    public Cycling(string date, double duration, double distance) : base(date, distance)
     {
-        this.minutes = minutes;
-        Speed = GetSpeed(distance, minutes);
-        Pace = GetPace(minutes, distance);
+        Duration = duration;
+        Speed = GetSpeed(Distance, Duration);
+        Pace = GetPace(Duration, distance);
     }
 
     public override double GetDistance()
@@ -25,9 +25,9 @@ public class Cycling:  Activity
         return minutes / distance;
     }
 
-    public string GetSummary()
+    public override string GetSummary()
     {
-        return $"{Date} Cycling ({minutes} min) - Distance: {Distance:F1} miles, Speed: {Speed:F1} Pace: {Pace:F1} min per mile";
+        return $"{Date} Cycling ({Duration} min) - Distance: {Distance:F1} miles, Speed: {Speed:F1} Pace: {Pace:F1} min per mile";
     }
 
 

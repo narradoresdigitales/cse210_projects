@@ -40,4 +40,10 @@ public class Activity
         return (minutes / distance);
     }
 
+    public virtual string GetSummary()
+    {
+        return $"{Date} Activity - Distance: {Distance:F1} miles, Speed: {Speed:F1} mph, Pace: {Pace:F1} min per mile";
+    }
+
+
 }

@@ -3,13 +3,13 @@ using System.Security.Cryptography.X509Certificates;
 public class Running: Activity
 
 {
-    private double minutes; 
+    public double Duration {get; private set;} 
 
-    public Running(string date, double distance, double minutes): base(date, distance)
+    public Running(string date, double duration, double distance): base(date, distance)
     {
-        this.minutes = minutes;
-        Speed = GetSpeed(distance, minutes);
-        Pace = GetPace(minutes, distance);
+        Duration = duration;
+        Speed = GetSpeed(Distance, Duration);
+        Pace = GetPace(Duration, Distance);
 
     }
 
@@ -23,9 +23,9 @@ public class Running: Activity
         return (distance / minutes) * 60;
     }
 
-    public string GetSummary()
+    public override string GetSummary()
     {
-        return $"{Date} Running ({minutes} min) - Distance: {Distance:F1} miles, Speed: {Speed:F1} min per mile";
+        return $"{Date} Running ({Duration} min) - Distance: {Distance:F1} miles, Speed: {Speed:F1} min per mile";
     }
 
 }

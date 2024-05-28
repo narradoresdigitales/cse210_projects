@@ -1,22 +1,19 @@
 public class Swimming: Activity
 
 {
-
     private double laps;
 
-    public Swimming(string date, double laps): base(date)
+    public Swimming(string date, double laps) : base(date, laps * 50 / 1000 * 0.62)
     {
         this.laps = laps;
-        Distance = GetDistance();
-        double minutes = laps * 50 / 1000;
+        double minutes = laps;
         Speed = GetSpeed(Distance, minutes);
-        Pace = GetPace(laps, Distance);
+        Pace = GetPace(minutes, Distance);
 
     }
 
     public override double GetDistance()
     {
-        
         return laps * 50 / 1000 * 0.62;
     }
 
@@ -26,13 +23,12 @@ public class Swimming: Activity
         return (distance / minutes) * 60;
     }
 
-    public override double GetPace(double laps, double distance)
+    public override double GetPace(double minutes, double distance)
     {
-        double minutes = laps * 50 / 1000;
         return minutes / distance;
     }
 
-    public string GetSummary()
+    public override string GetSummary()
     {
         return $"{Date} Swimming ({laps} laps) - Distance: {Distance: F1} miles, Speed: {Speed:F1} mph, Pace: {Pace:F1} min per mile";
     }

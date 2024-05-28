@@ -23,6 +23,21 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Marcus, Foundation4 World!");
+        Console.WriteLine();
+
+        Console.WriteLine("Activity Summaries:");
+        Console.WriteLine();
+
+        Running run = new Running ("28 May 2024", 30, 3.0);
+        Cycling cycle = new Cycling("29 May 2024", 45, 15.0);
+        Swimming swim = new Swimming("30 May 2024", 40);
+
+        Console.WriteLine(run.GetSummary());
+        Console.WriteLine(cycle.GetSummary());
+        Console.WriteLine(swim.GetSummary());
+
+
+
     }
 
 
