@@ -6,15 +6,11 @@ public class SimpleGoal : Goal
     {
     }
 
-    // public override void RecordEvent() {
-    //     _isComplete = true;
-
-    //     int index _goals.FindIndex(global => global == this);
-    //     if (index != -1)
-    //     {
-    //         _goals[index] = this;
-    //     }
-    // }
+    public override void RecordEvent() 
+    {
+        _isComplete = true;
+        
+    }
 
     public override bool IsComplete() {
         return _isComplete;

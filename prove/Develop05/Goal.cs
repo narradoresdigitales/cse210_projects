@@ -1,9 +1,11 @@
+using System;
+using System.Collections.Generic;
+
 public abstract class Goal
 {
     protected string _shortName = "";
     protected string _description = "";
     protected string _points = "0";
-
     protected bool _isComplete = false;
 
     protected Goal(string name, string description, string points) // constructor
