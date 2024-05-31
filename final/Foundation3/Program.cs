@@ -22,31 +22,47 @@ class Program
         Reception reception = new Reception("Celebrating Inheritance in C#", "A formal evening event", "2024-05-28", "6:00 PM", address1, "rsvp@narradoresdigitales@gmail.com" );
         OutdoorGathering gathering = new OutdoorGathering("Community Picnic", "An outdoor event for the C# community","2024-06-23", "10:00 AM - 10:00 PM", address2, "Plenty of sunshine and mild temperatures" );
 
-        Console.WriteLine("Lecture Full Details:");
-        Console.WriteLine(lecture.PublishFullDetails());
+        
+        Console.WriteLine("Lecture, Standard Details:");
+        Console.WriteLine(lecture.PublishStandardDetails());
         Console.WriteLine();
 
-        Console.WriteLine("Reception Full Details: ");
+        Console.WriteLine("Reception, Standard Details:");
         Console.WriteLine(reception.PublishFullDetails());
         Console.WriteLine();
 
-        Console.WriteLine("Gathering Full Details: ");
+        Console.WriteLine("Gathering, Standard Details:");
+        Console.WriteLine(gathering.PublishFullDetails());
+        Console.WriteLine();
+        
+        
+        Console.WriteLine("Lecture, Full Details:");
+        Console.WriteLine(lecture.PublishFullDetails());
+        Console.WriteLine();
+
+        Console.WriteLine("Reception, Full Details: ");
+        Console.WriteLine(reception.PublishFullDetails());
+        Console.WriteLine();
+
+        Console.WriteLine("Gathering, Full Details: ");
         Console.WriteLine(gathering.PublishFullDetails());
         Console.WriteLine();
 
 ///
 
-        Console.WriteLine("Lecture Short Details:");
+        Console.WriteLine("Lecture, Short Description:");
         Console.WriteLine(lecture.PublishShortDescription());
         Console.WriteLine();
 
-        Console.WriteLine("Reception Short Details: ");
+        Console.WriteLine("Reception Short Description: ");
         Console.WriteLine(reception.PublishShortDescription());
         Console.WriteLine();
 
-        Console.WriteLine("Gathering Short Details: ");
+        Console.WriteLine("Gathering Short Description: ");
         Console.WriteLine(gathering.PublishShortDescription());
         Console.WriteLine();
+
+
 
 
 

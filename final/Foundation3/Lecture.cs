@@ -29,4 +29,9 @@ public class Lecture : Event
         return $"{base.PublishStandardDetails()}\nSpeaker: {Speaker}\nCapacity {Capacity}";
     }
 
+    public override string PublishShortDescription()
+    {
+        return $"Event Type: {this.GetType().Name}\nTitle: {Title}\nDate: {Date}";
+    }
+
 }
