@@ -35,6 +35,7 @@ class Program
         Console.WriteLine(run.GetSummary());
         Console.WriteLine(cycle.GetSummary());
         Console.WriteLine(swim.GetSummary());
+        Console.WriteLine();
 
 
 

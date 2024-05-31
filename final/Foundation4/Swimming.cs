@@ -30,7 +30,7 @@ public class Swimming: Activity
 
     public override string GetSummary()
     {
-        return $"{Date} Swimming ({laps} laps) - Distance: {Distance: F1} miles, Speed: {Speed:F1} mph, Pace: {Pace:F1} min per mile";
+        return $"{Date} Swimming ({laps} laps) - Distance: {Distance:F1} miles, Speed: {Speed:F1} mph, Pace: {Pace:F1} min per mile";
     }
 
 
